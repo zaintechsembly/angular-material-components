@@ -76,58 +76,12 @@
             "browserTarget": "angular-material-components:build"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": [],
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ]
-          }
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "src/tsconfig.app.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "angular-material-components-e2e": {
-      "root": "e2e/",
-      "projectType": "application",
-      "prefix": "",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-material-components:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "angular-material-components:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
             "exclude": [
               "**/node_modules/**"
             ]
@@ -162,111 +116,6 @@
             "tsConfig": [
               "projects/datetime-picker/tsconfig.lib.json",
               "projects/datetime-picker/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "NgxMatMomentAdapter": {
-      "root": "projects/moment-adapter",
-      "sourceRoot": "projects/moment-adapter/src",
-      "projectType": "library",
-      "prefix": "NgxMat",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/moment-adapter/tsconfig.lib.json",
-            "project": "projects/moment-adapter/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/moment-adapter/src/test.ts",
-            "tsConfig": "projects/moment-adapter/tsconfig.spec.json",
-            "karmaConfig": "projects/moment-adapter/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/moment-adapter/tsconfig.lib.json",
-              "projects/moment-adapter/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "NgxMatColorPicker": {
-      "root": "projects/color-picker",
-      "sourceRoot": "projects/color-picker/src",
-      "projectType": "library",
-      "prefix": "NgxMat",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/color-picker/tsconfig.lib.json",
-            "project": "projects/color-picker/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/color-picker/src/test.ts",
-            "tsConfig": "projects/color-picker/tsconfig.spec.json",
-            "karmaConfig": "projects/color-picker/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/color-picker/tsconfig.lib.json",
-              "projects/color-picker/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "NgxMatFileInput": {
-      "root": "projects/file-input",
-      "sourceRoot": "projects/file-input/src",
-      "projectType": "library",
-      "prefix": "NgxMat",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/file-input/tsconfig.lib.json",
-            "project": "projects/file-input/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/file-input/src/test.ts",
-            "tsConfig": "projects/file-input/tsconfig.spec.json",
-            "karmaConfig": "projects/file-input/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/file-input/tsconfig.lib.json",
-              "projects/file-input/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
