@@ -5,42 +5,30 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "bundler",
     "importHelpers": true,
-    "target": "es5",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
     "lib": [
-      "es2018",
+      "ES2022",
       "dom"
     ],
     "paths": {
-      "@angular-material-components/*": [
-        "dist/@angular-material-components/*"
-      ],
-      "@angular-material-components/color-picker": [
-        "dist/@angular-material-components/color-picker"
-      ],
-      "@angular-material-components/color-picker/*": [
-        "dist/@angular-material-components/color-picker/*"
-      ],
       "@angular-material-components/datetime-picker": [
         "dist/@angular-material-components/datetime-picker"
       ],
       "@angular-material-components/datetime-picker/*": [
         "dist/@angular-material-components/datetime-picker/*"
-      ],
-      "file-input": [
-        "dist/file-input"
-      ],
-      "file-input/*": [
-        "dist/file-input/*"
       ]
     }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
   }
 }
