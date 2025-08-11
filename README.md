@@ -1,11 +1,11 @@
-# Angular Material Extra Components (DatetimePicker, TimePicker) for @angular/material 7.x, 8.x, 9.x
+# Angular Material Extra Components (DatetimePicker, TimePicker ...) for @angular/material 7.x, 8.x, 9.x
 
 [![Build Status](https://travis-ci.com/h2qutc/angular-material-components.svg?branch=master)](https://travis-ci.com/h2qutc/angular-material-components)
 [![License](https://img.shields.io/npm/l/angular-material-components.svg)](https://www.npmjs.com/package/angular-material-components)
 
 ## Description
 
-Angular Material Library provide extra components for every project (Datetime picker, Time picker).
+Angular Material Library provide extra components for every project (Datetime picker, Time picker...).
 
 Please do not hesitate to contact us if you have any question or suggestion.
 
@@ -34,6 +34,7 @@ npm install --save  @angular-material-components/datetime-picker
 @see [DEMO stackblitz for Angular 7, Angular 8](https://stackblitz.com/edit/demo-ngx-mat-datetime-picker)
 
 @see [DEMO stackblitz for Angular 9](https://stackblitz.com/edit/demo-ngx-mat-datetime-picker-angular9)
+
 
 ### Theming
 - @see @angular/material [Using a pre-built theme](https://material.angular.io/guide/theming#using-a-pre-built-theme)

@@ -1,7 +1,7 @@
 {
   "name": "@angular-material-components/datetime-picker",
-  "version": "19.0.0",
-  "description": "Angular 19 Material Datetime Picker - Standalone Component",
+  "version": "2.0.4",
+  "description": "Angular Material Datetime Picker",
   "author": "HO Hong Quan",
   "repository": {
     "type": "git",
@@ -13,9 +13,7 @@
   "homepage": "https://github.com/h2qutc/angular-material-components",
   "keywords": [
     "angular",
-    "angular19",
-    "angular 19",
-    "standalone",
+    "angular2",
     "angular-material",
     "angular material datetime picker",
     "angular material time picker",
@@ -35,7 +33,6 @@
     "@angular/forms": "^19.0.0",
     "@angular/material": "^19.0.0",
     "@angular/cdk": "^19.0.0",
-    "rxjs": "^7.5.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.6.0"
   }
 }

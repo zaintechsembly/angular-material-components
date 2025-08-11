@@ -1,6 +1,6 @@
 <mat-tab-group>
   <mat-tab label="API">
-    <h1>API reference for @angular-material-components/datetime-picker</h1>
+    <h1>API reference for &#64;angular-material-components/datetime-picker</h1>
     <h2>Getting started</h2>
 
     <a href="https://www.npmjs.com/package/@angular-material-components/datetime-picker" target="_blank">
@@ -15,7 +15,7 @@
       </code>
     </pre>
 
-    <h2>Properties @Input</h2>
+    <h2>Properties &#64;Input</h2>
     <table class="api-table-properties">
       <tbody>
         <tr>
@@ -200,34 +200,33 @@
         </tr>
         <tr>
           <td>Import from </td>
-          <td>@angular-material-components/datetime-picker</td>
-          <td>Built-in Date Adapter</td>
+          <td>&#64;angular-material-components/datetime-picker</td>
+          <td><a
+              href="https://www.npmjs.com/package/@angular-material-components/moment-adapter">&#64;angular-material-components/moment-adapter</a>
+          </td>
         </tr>
       </tbody>
     </table>
 
-    To use <strong>NgxMatMomentModule</strong>:
-    <pre><code>{{code4}}</code></pre>
-
     <p>Please note: <strong>NgxMatNativeDateModule</strong> is based off the functionality available in JavaScript's
       native Date object. Thus it is not suitable for many locales. One of the biggest shortcomings of the native Date
       object is the inability to set the parse format.</p>
-    <p>We highly recommend using the <strong>NgxMatMomentModule</strong> or a custom <strong>NgxMatDateAdapter</strong>
+    <p>We recommend creating a custom <strong>NgxMatDateAdapter</strong>
       that works with the formatting/parsing library of your choice.</p>
     For example: Creating a custom date adapter
-    <pre><code ngxMatHighlight class="language-typescript">{{code5}}</code></pre>
+    <pre><code ngxMatHighlight class="language-typescript">{{code4}}</code></pre>
 
     Creating a custom date adapter module
-    <pre><code ngxMatHighlight class="language-typescript">{{code6}}</code></pre>
+    <pre><code ngxMatHighlight class="language-typescript">{{code5}}</code></pre>
 
     You can also customize the date format by providing your custom <strong>NGX_MAT_DATE_FORMATS</strong> in your module.
-    <pre><code ngxMatHighlight class="language-typescript">{{code7}}</code></pre>
+    <pre><code ngxMatHighlight class="language-typescript">{{code6}}</code></pre>
 
     <h2>Theming</h2>
-    <p>@see @angular/material <a href="https://material.angular.io/guide/theming#using-a-pre-built-theme">Using a
+    <p>&#64;see &#64;angular/material <a href="https://material.angular.io/guide/theming#using-a-pre-built-theme">Using a
         pre-built theme</a></p>
     <p>Add the Material Design icon font to your index.html</p>
-    <pre><code ngxMatHighlight class="language-css">{{code8}}</code></pre>
+    <pre><code ngxMatHighlight class="language-css">{{code7}}</code></pre>
 
   </mat-tab>
   <mat-tab label="Example">
