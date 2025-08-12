@@ -16,7 +16,7 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, ComponentRef, Elemen
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { ThemePalette } from '@angular/material/core';
-import { MatCalendarCellCssClasses, matDatepickerAnimations, MAT_DATEPICKER_SCROLL_STRATEGY } from '@angular/material/datepicker';
+import { MatCalendarCellCssClasses, matDatepickerAnimations, MAT_DATEPICKER_SCROLL_STRATEGY, MatDatepickerPanel, MatDatepickerControl, MatSingleDateSelectionModel, MatDateSelectionModel } from '@angular/material/datepicker';
 import { MatDialogModule, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -137,7 +137,7 @@ export class NgxMatDatetimeContent<D> extends _MatDatepickerContentMixinBase
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class NgxMatDatetimePicker<D> implements OnDestroy {
+export class NgxMatDatetimePicker<D> implements OnDestroy, MatDatepickerPanel<MatDatepickerControl<D>, D | null, D> {
   private _scrollStrategy: () => ScrollStrategy;
 
   /** An input indicating the type of the custom header component for the calendar, if set. */
@@ -339,6 +339,10 @@ export class NgxMatDatetimePicker<D> implements OnDestroy {
   /** Emits new selected date when selected date changes. */
   readonly _selectedChanged = new Subject<D>();
 
+  /** The date selection model used by this datepicker. */
+  private _selectionModel: MatDateSelectionModel<D | null, D> =  new MatSingleDateSelectionModel<D>(this._dateAdapter);
+
+
   /** Raw value before  */
   private _rawValue!: D | null;
 
@@ -356,6 +360,17 @@ export class NgxMatDatetimePicker<D> implements OnDestroy {
 
     this._scrollStrategy = scrollStrategy;
   }
+  /**
+   * Reference to the registered datepicker input.
+   * This is kept for compatibility with Angular Material's MatDatepickerPanel interface.
+   */
+  datepickerInput!: MatDatepickerControl<D>;
+
+  /**
+   * Emits whenever the state of the datepicker changes (e.g. opened/closed, value changed).
+   * Useful for forms or parent components to react to changes.
+   */
+  stateChanges: Subject<void> = new Subject<void>();
 
   ngOnDestroy() {
     this.close();
@@ -426,6 +441,14 @@ export class NgxMatDatetimePicker<D> implements OnDestroy {
     this._datepickerInput = input;
     this._inputSubscription =
       this._datepickerInput._valueChange.subscribe((value: D | null) => this._selected = value);
+  }
+    /**
+   * Registers a datepicker input instance with this datepicker.
+   * @param input The datepicker input instance.
+   */
+  registerInput(input: MatDatepickerControl<D>): MatDateSelectionModel<D | null, D> {
+    this._registerInput(input as unknown as NgxMatDatetimeInput<D>);
+    return this._selectionModel as MatDateSelectionModel<D | null, D>;
   }
 
   /** Open the calendar. */
