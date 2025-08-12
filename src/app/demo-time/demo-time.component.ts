@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
 import { NgxMatTimepickerComponent } from '../../../projects/datetime-picker/src/lib/timepicker.component';
 import { NgxMatHighlightDirective } from '../shared/NgxMatHighlightDirective';
+import { NgxMatNativeDateModule } from '../../../projects/datetime-picker/src/lib/core/native-date.module';
 
 @Component({
   selector: 'app-demo-time',
@@ -32,7 +33,8 @@ import { NgxMatHighlightDirective } from '../shared/NgxMatHighlightDirective';
     MatCardModule,
     MatRadioModule,
     NgxMatTimepickerComponent,
-    NgxMatHighlightDirective
+    NgxMatHighlightDirective,
+    NgxMatNativeDateModule
   ]
 })
 export class DemoTimeComponent implements OnInit {
