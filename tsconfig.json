@@ -32,6 +32,19 @@
       ]
     }
   },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/main.ts",
+    "src/app/**/*.ts",
+    "src/environments/environment*.ts"
+  ],
+  "exclude": [
+    "src/app/**/*.module.ts",
+    "**/*.spec.ts"
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
