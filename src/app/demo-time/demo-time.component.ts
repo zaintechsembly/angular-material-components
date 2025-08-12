@@ -58,7 +58,7 @@ export class DemoTimeComponent implements OnInit {
   </ngx-mat-timepicker>`;
 
 
-  public date: Date = new Date();
+  public date: Date = new Date(new Date().setHours(0, 0, 0, 0));
 
   public options = [
     { value: true, label: 'True' },
