@@ -340,7 +340,7 @@ export class NgxMatDatetimePicker<D> implements OnDestroy, MatDatepickerPanel<Ma
   readonly _selectedChanged = new Subject<D>();
 
   /** The date selection model used by this datepicker. */
-  private _selectionModel: MatDateSelectionModel<D | null, D> =  new MatSingleDateSelectionModel<D>(this._dateAdapter);
+  private _selectionModel!: MatDateSelectionModel<D | null, D>;
 
 
   /** Raw value before  */
@@ -359,6 +359,7 @@ export class NgxMatDatetimePicker<D> implements OnDestroy, MatDatepickerPanel<Ma
     }
 
     this._scrollStrategy = scrollStrategy;
+    this._selectionModel = new MatSingleDateSelectionModel<D>(this._dateAdapter);
   }
   /**
    * Reference to the registered datepicker input.
