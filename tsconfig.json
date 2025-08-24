@@ -24,11 +24,11 @@
       "dom"
     ],
     "paths": {
-      "@angular-material-components/datetime-picker": [
-        "dist/@angular-material-components/datetime-picker"
+      "@mehranjavid/datetime-picker": [
+        "dist/@mehranjavid/datetime-picker"
       ],
-      "@angular-material-components/datetime-picker/*": [
-        "dist/@angular-material-components/datetime-picker/*"
+      "@mehranjavid/datetime-picker/*": [
+        "dist/@mehranjavid/datetime-picker/*"
       ]
     }
   },

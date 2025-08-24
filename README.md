@@ -21,12 +21,12 @@ If you like this project, support angular-material-components by starring⭐.
 
 ### Datetime Picker
 
-[![npm version](https://badge.fury.io/js/%40angular-material-components%2Fdatetime-picker.svg)](https://www.npmjs.com/package/@angular-material-components/datetime-picker)
+[![npm version](https://badge.fury.io/js/%40angular-material-components%2Fdatetime-picker.svg)](https://www.npmjs.com/package/@mehranjavid/datetime-picker)
 
 [TUTORIAL HERE](https://h2qutc.github.io/angular-material-components/)
 
 ```
-npm install --save  @angular-material-components/datetime-picker
+npm install --save  @mehranjavid/datetime-picker
 ```
 
 ![Alt Text](demo_datetime_picker.png)
