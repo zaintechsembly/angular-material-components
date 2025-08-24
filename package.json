@@ -1,6 +1,6 @@
 {
   "name": "angular-material-components",
-  "version": "2.0.3",
+  "version": "2.0.5",
   "description": "Angular Material Datetime Picker",
   "author": "HO Hong Quan",
   "repository": {
@@ -29,12 +29,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4500",
-    "build": "ng build",
-    "build:datetime-picker": "ng build NgxMatDatetimePicker",
-    "build:prod": "ng build --configuration production"
+    "build": "ng build NgxMatDatetimePicker",
+    "pack": "cd dist/@mehranjavid/datetime-picker && npm pack",
+    "publish": "cd dist/@mehranjavid/datetime-picker && npm publish"
   },
   "private": false,
   "dependencies": {
+    "@mehranjavid/datetime-picker": "^2.0.5",
     "@angular/animations": "^19.0.0",
     "@angular/cdk": "^19.0.0",
     "@angular/common": "^19.0.0",
