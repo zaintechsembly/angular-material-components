@@ -52,7 +52,7 @@
 
         <td *ngIf="enableMeridian" class="spacer"></td>
         <td *ngIf="enableMeridian" class="meridian">
-          <button mat-button (click)="toggleMeridian()" mat-stroked-button [color]="color" [disabled]="disabled">
+          <button mat-button class="mat-button" (click)="toggleMeridian()" mat-stroked-button [color]="color" [disabled]="disabled">
             {{meridian}}
           </button>
         </td>

@@ -13,9 +13,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { NgxMatNativeDateModule } from '../../../projects/datetime-picker/src/lib/core/native-date.module';
-import { NgxMatDatetimePicker } from '../../../projects/datetime-picker/src/lib/datetime-picker.component';
-import { NgxMatDatetimeInput } from '../../../projects/datetime-picker/src/lib/datetime-input';
+import { NgxMatNativeDateModule, NgxMatDatetimePicker, NgxMatDatetimeInput } from '@mehranjavid/datetime-picker';
 import { NgxMatHighlightDirective } from '../shared/NgxMatHighlightDirective';
 
 @Component({
@@ -75,7 +73,7 @@ export class DemoDatetimeComponent implements OnInit {
   public stepMinutes = [1, 5, 10, 15, 20, 25];
   public stepSeconds = [1, 5, 10, 15, 20, 25];
 
-  public code1 = 'npm install --save @angular-material-components/datetime-picker';
+  public code1 = 'npm install --save @mehranjavid/datetime-picker';
 
   public code3 = `<mat-form-field>
   <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date" [formControl]="dateControl"
@@ -91,7 +89,7 @@ export class DemoDatetimeComponent implements OnInit {
            NgxMatDatetimePickerModule, 
            NgxMatNativeDateModule, 
            NgxMatTimepickerModule 
-  } from '@angular-material-components/datetime-picker';
+  } from '@mehranjavid/datetime-picker';
   
 @NgModule({
   imports: [
