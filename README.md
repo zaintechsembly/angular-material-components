@@ -13,6 +13,22 @@ Feel free to open the [issues](https://github.com/h2qutc/angular-material-compon
 
 If you like this project, support angular-material-components by starring⭐.
 
+# 📦 Build & Package
+
+To build and generate a distributable tarball:
+
+```bash
+# 1. Build the Angular library
+npm run build
+
+# 2. Create an npm package tarball
+npm pack --pack-destination ../build
+
+# 3. installation path
+
+
+
+
 [![button](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SAAY32BP5KPPC&source=url)
 
 ## DEMO Angular Material Components
