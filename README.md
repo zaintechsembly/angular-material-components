@@ -37,12 +37,12 @@ npm pack --pack-destination ../build
 
 ### Datetime Picker
 
-[![npm version](https://badge.fury.io/js/%40angular-material-components%2Fdatetime-picker.svg)](https://www.npmjs.com/package/@mehranjavid/datetime-picker)
+[![npm version](https://badge.fury.io/js/%40angular-material-components%2Fdatetime-picker.svg)](https://www.npmjs.com/package/datetime-picker)
 
 [TUTORIAL HERE](https://h2qutc.github.io/angular-material-components/)
 
 ```
-npm install --save  @mehranjavid/datetime-picker
+npm install --save  datetime-picker
 ```
 
 ![Alt Text](demo_datetime_picker.png)

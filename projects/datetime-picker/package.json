@@ -1,16 +1,8 @@
 {
-  "name": "@mehranjavid/datetime-picker",
+  "name": "datetime-picker",
   "version": "2.0.9",
   "description": "Angular Material Datetime Picker",
   "author": "mehranjavid",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mehranjavid/datetime-picker.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mehranjavid/datetime-picker/issues"
-  },
-  "homepage": "https://github.com/mehranjavid/datetime-picker",
   "keywords": [
     "angular",
     "angular2",

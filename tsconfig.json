@@ -24,11 +24,11 @@
       "dom"
     ],
     "paths": {
-      "@mehranjavid/datetime-picker": [
-        "dist/@mehranjavid/datetime-picker"
+      "datetime-picker": [
+        "dist/datetime-picker"
       ],
-      "@mehranjavid/datetime-picker/*": [
-        "dist/@mehranjavid/datetime-picker/*"
+      "datetime-picker/*": [
+        "dist/datetime-picker/*"
       ]
     }
   },
