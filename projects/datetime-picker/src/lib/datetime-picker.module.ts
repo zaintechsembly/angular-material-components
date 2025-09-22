@@ -5,6 +5,7 @@ import { NgxMatMonthView } from './month-view';
 import { NgxMatMultiYearView } from './multi-year-view';
 import { NgxMatTimepickerComponent } from './timepicker.component';
 import { NgxMatYearView } from './year-view';
+import { MatCalendarBody, MatCalendarCell, MatCalendarCellCssClasses } from '../custom/calendar-body';
 
 // Re-export standalone components for backward compatibility
 export {

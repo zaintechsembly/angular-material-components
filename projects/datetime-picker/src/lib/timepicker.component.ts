@@ -1,15 +1,15 @@
 import { ChangeDetectorRef, Component, forwardRef, Input, OnChanges, OnDestroy, OnInit, Optional, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators, ReactiveFormsModule } from '@angular/forms';
-import { ThemePalette } from '@angular/material/core';
+import { ThemePalette } from '../../../../core';
 import { Subject } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { NgxMatDateAdapter } from './core/date-adapter';
 import { createMissingDateImplError, DEFAULT_STEP, formatTwoDigitTimeValue, LIMIT_TIMES, MERIDIANS, NUMERIC_REGEX, PATTERN_INPUT_HOUR, PATTERN_INPUT_MINUTE, PATTERN_INPUT_SECOND } from './utils/date-utils';
 import { CommonModule } from '@angular/common';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '../../../../input';
+import { MatIconModule } from '../../../../icon';
+import { MatButtonModule } from '../../../../button';
+import { MatFormFieldModule } from '../../../../form-field';
 
 @Component({
   selector: 'ngx-mat-timepicker',

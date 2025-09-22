@@ -9,11 +9,11 @@
 import { Directionality } from '@angular/cdk/bidi';
 import { DOWN_ARROW, END, ENTER, HOME, LEFT_ARROW, PAGE_DOWN, PAGE_UP, RIGHT_ARROW, SPACE, UP_ARROW } from '@angular/cdk/keycodes';
 import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Inject, Input, Optional, Output, ViewChild, ViewEncapsulation } from '@angular/core';
-import { MatCalendarBody, MatCalendarCell } from '@angular/material/datepicker';
 import { NgxMatDateAdapter } from './core/date-adapter';
 import { NgxMatDateFormats, NGX_MAT_DATE_FORMATS } from './core/date-formats';
 import { createMissingDateImplError } from './utils/date-utils';
 import { CommonModule } from '@angular/common';
+import { MatCalendarBody, MatCalendarCell, MatCalendarCellCssClasses } from '../custom/calendar-body';
 
 /**
  * An internal component used to display a single year in the datepicker.

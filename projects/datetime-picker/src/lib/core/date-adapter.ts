@@ -1,4 +1,4 @@
-import { DateAdapter } from '@angular/material/core';
+import { DateAdapter } from '../../../../../core';
 
 export abstract class NgxMatDateAdapter<D> extends DateAdapter<D> {
   /**

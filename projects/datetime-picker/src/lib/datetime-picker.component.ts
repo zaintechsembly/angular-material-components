@@ -12,14 +12,14 @@ import { ESCAPE, UP_ARROW } from '@angular/cdk/keycodes';
 import { Overlay, OverlayConfig, OverlayRef, PositionStrategy, ScrollStrategy } from '@angular/cdk/overlay';
 import { ComponentPortal, ComponentType } from '@angular/cdk/portal';
 import { DOCUMENT, CommonModule } from '@angular/common';
-import { AfterViewInit, ChangeDetectionStrategy, Component, ComponentRef, ElementRef, EventEmitter, Inject, Input, NgZone, OnDestroy, Optional, Output, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ComponentRef, ElementRef, EventEmitter, Inject, InjectionToken, Input, NgZone, OnDestroy, Optional, Output, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { ThemePalette } from '@angular/material/core';
-import { MatCalendarCellCssClasses, matDatepickerAnimations, MAT_DATEPICKER_SCROLL_STRATEGY, MatDatepickerPanel, MatDatepickerControl, MatSingleDateSelectionModel, MatDateSelectionModel } from '@angular/material/datepicker';
-import { MatDialogModule, MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '../../../../button';
+import { CanColor, CanColorCtor, mixinColor, ThemePalette } from '../../../../core';
+import { matDatepickerAnimations} from './datepicker-animations'
+import { MatDialogModule, MatDialog, MatDialogRef } from '../../../../dialog';
+import { MatIconModule } from '../../../../icon';
+import { MatInputModule } from '../../../../input';
 import { NgxMatDateAdapter } from './core/date-adapter';
 import { merge, Subject, Subscription } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
@@ -32,18 +32,31 @@ import { ValidationErrors } from '@angular/forms';
 /** Used to generate a unique ID for each datepicker instance. */
 let datepickerUid = 0;
 
-// Custom interface to replace CanColor for Angular 19 compatibility
-interface HasColor {
-  color?: ThemePalette;
+export type MatCalendarCellCssClasses = string | string[] | Set<string> | {[key: string]: any};
+
+/** Injection token that determines the scroll handling while the calendar is open. */
+export const MAT_DATEPICKER_SCROLL_STRATEGY =
+    new InjectionToken<() => ScrollStrategy>('mat-datepicker-scroll-strategy');
+
+/** @docs-private */
+export function MAT_DATEPICKER_SCROLL_STRATEGY_FACTORY(overlay: Overlay): () => ScrollStrategy {
+  return () => overlay.scrollStrategies.reposition();
 }
 
-// Base class for datepicker content
+/** @docs-private */
+export const MAT_DATEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER = {
+  provide: MAT_DATEPICKER_SCROLL_STRATEGY,
+  deps: [Overlay],
+  useFactory: MAT_DATEPICKER_SCROLL_STRATEGY_FACTORY,
+};
+
+// Boilerplate for applying mixins to MatDatepickerContent.
+/** @docs-private */
 class MatDatepickerContentBase {
   constructor(public _elementRef: ElementRef) { }
 }
-
-// Use the base class directly since mixins are deprecated
-const _MatDatepickerContentMixinBase = MatDatepickerContentBase;
+const _MatDatepickerContentMixinBase: CanColorCtor & typeof MatDatepickerContentBase =
+  mixinColor(MatDatepickerContentBase);
 
 /**
  * Component used as the content for the datepicker dialog and popup. We use this instead of using
@@ -60,9 +73,6 @@ const _MatDatepickerContentMixinBase = MatDatepickerContentBase;
     'class': 'mat-datepicker-content',
     '[@transformPanel]': '"enter"',
     '[class.mat-datepicker-content-touch]': 'datepicker.touchUi',
-    '[class.mat-primary]': 'color === "primary"',
-    '[class.mat-accent]': 'color === "accent"',
-    '[class.mat-warn]': 'color === "warn"',
   },
   animations: [
     matDatepickerAnimations.transformPanel,
@@ -71,6 +81,7 @@ const _MatDatepickerContentMixinBase = MatDatepickerContentBase;
   exportAs: 'ngxMatDatetimeContent',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  inputs: ['color'],
   standalone: true,
   imports: [
     CommonModule,
@@ -84,13 +95,7 @@ const _MatDatepickerContentMixinBase = MatDatepickerContentBase;
   ]
 })
 export class NgxMatDatetimeContent<D> extends _MatDatepickerContentMixinBase
-  implements AfterViewInit, HasColor {
-
-  /** The theme color palette for the datepicker content. */
-  @Input()
-  get color(): ThemePalette { return this._color; }
-  set color(value: ThemePalette) { this._color = value; }
-  private _color: ThemePalette;
+  implements AfterViewInit, CanColor {
 
   /** Reference to the internal calendar component. */
   @ViewChild(NgxMatCalendar) _calendar!: NgxMatCalendar<D>;
@@ -137,7 +142,7 @@ export class NgxMatDatetimeContent<D> extends _MatDatepickerContentMixinBase
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class NgxMatDatetimePicker<D> implements OnDestroy, MatDatepickerPanel<MatDatepickerControl<D>, D | null, D> {
+export class NgxMatDatetimePicker<D> implements OnDestroy, CanColor {
   private _scrollStrategy: () => ScrollStrategy;
 
   /** An input indicating the type of the custom header component for the calendar, if set. */
@@ -339,10 +344,6 @@ export class NgxMatDatetimePicker<D> implements OnDestroy, MatDatepickerPanel<Ma
   /** Emits new selected date when selected date changes. */
   readonly _selectedChanged = new Subject<D>();
 
-  /** The date selection model used by this datepicker. */
-  private _selectionModel!: MatDateSelectionModel<D | null, D>;
-
-
   /** Raw value before  */
   private _rawValue!: D | null;
 
@@ -359,19 +360,7 @@ export class NgxMatDatetimePicker<D> implements OnDestroy, MatDatepickerPanel<Ma
     }
 
     this._scrollStrategy = scrollStrategy;
-    this._selectionModel = new MatSingleDateSelectionModel<D>(this._dateAdapter);
   }
-  /**
-   * Reference to the registered datepicker input.
-   * This is kept for compatibility with Angular Material's MatDatepickerPanel interface.
-   */
-  datepickerInput!: MatDatepickerControl<D>;
-
-  /**
-   * Emits whenever the state of the datepicker changes (e.g. opened/closed, value changed).
-   * Useful for forms or parent components to react to changes.
-   */
-  stateChanges: Subject<void> = new Subject<void>();
 
   ngOnDestroy() {
     this.close();
@@ -442,14 +431,6 @@ export class NgxMatDatetimePicker<D> implements OnDestroy, MatDatepickerPanel<Ma
     this._datepickerInput = input;
     this._inputSubscription =
       this._datepickerInput._valueChange.subscribe((value: D | null) => this._selected = value);
-  }
-    /**
-   * Registers a datepicker input instance with this datepicker.
-   * @param input The datepicker input instance.
-   */
-  registerInput(input: MatDatepickerControl<D>): MatDateSelectionModel<D | null, D> {
-    this._registerInput(input as unknown as NgxMatDatetimeInput<D>);
-    return this._selectionModel as MatDateSelectionModel<D | null, D>;
   }
 
   /** Open the calendar. */
@@ -578,7 +559,7 @@ export class NgxMatDatetimePicker<D> implements OnDestroy, MatDatepickerPanel<Ma
     this._popupRef = this._overlay.create(overlayConfig);
     this._popupRef.overlayElement.setAttribute('role', 'dialog');
 
-    merge(
+    merge<any>(
       this._popupRef.backdropClick(),
       this._popupRef.detachments(),
       this._popupRef.keydownEvents().pipe(filter(event => {
@@ -586,7 +567,7 @@ export class NgxMatDatetimePicker<D> implements OnDestroy, MatDatepickerPanel<Ma
         return event.keyCode === ESCAPE ||
           (this._datepickerInput && event.altKey && event.keyCode === UP_ARROW);
       }))
-    ).subscribe(event => {
+    ).subscribe((event: any) => {
       if (event) {
         event.preventDefault();
       }

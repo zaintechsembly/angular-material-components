@@ -31,7 +31,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import {Directionality} from '@angular/cdk/bidi';
-import { MatCalendarBody, MatCalendarCell } from '@angular/material/datepicker';
+import { MatCalendarBody, MatCalendarCell, MatCalendarCellCssClasses } from '../custom/calendar-body';
 import { NgxMatDateAdapter } from './core/date-adapter';
 import { CommonModule } from '@angular/common';
 

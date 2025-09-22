@@ -8,7 +8,7 @@
 
 import { ComponentPortal, ComponentType, Portal, PortalModule } from '@angular/cdk/portal';
 import { AfterContentInit, AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, forwardRef, Inject, Input, OnChanges, OnDestroy, Optional, Output, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
-import { MatCalendarCellCssClasses, MatDatepickerIntl } from '@angular/material/datepicker';
+import { MatDatepickerIntl } from '../custom/datepicker-intl';
 import { Subject, Subscription } from 'rxjs';
 import { NgxMatDateAdapter } from './core/date-adapter';
 import { NgxMatDateFormats, NGX_MAT_DATE_FORMATS } from './core/date-formats';
@@ -17,8 +17,9 @@ import { getActiveOffset, isSameMultiYearView, NgxMatMultiYearView, yearsPerPage
 import { createMissingDateImplError, formatYearRange } from './utils/date-utils';
 import { NgxMatYearView } from './year-view';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '../../../../button';
+import { MatIconModule } from '../../../../icon';
+import { MatCalendarBody, MatCalendarCell, MatCalendarCellCssClasses } from '../custom/calendar-body';
 
 /**
  * Possible views for the calendar.
