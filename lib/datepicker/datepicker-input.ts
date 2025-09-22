@@ -29,9 +29,9 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
-import {DateAdapter, MAT_DATE_FORMATS, MatDateFormats, ThemePalette} from '@angular/material/core';
-import {MatFormField} from '@angular/material/form-field';
-import {MAT_INPUT_VALUE_ACCESSOR} from '@angular/material/input';
+import {DateAdapter, MAT_DATE_FORMATS, MatDateFormats, ThemePalette} from '../core';
+import {MatFormField} from '../form-field';
+import {MAT_INPUT_VALUE_ACCESSOR} from '../input';
 import {Subscription} from 'rxjs';
 import {MatDatepicker} from './datepicker';
 import {createMissingDateImplError} from './datepicker-errors';

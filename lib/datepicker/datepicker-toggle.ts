@@ -22,7 +22,7 @@ import {
   ViewEncapsulation,
   ViewChild,
 } from '@angular/core';
-import {MatButton} from '@angular/material/button';
+import {MatButton} from '../button';
 import {merge, of as observableOf, Subscription} from 'rxjs';
 import {MatDatepicker} from './datepicker';
 import {MatDatepickerIntl} from './datepicker-intl';
