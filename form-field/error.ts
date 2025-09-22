@@ -19,7 +19,8 @@ let nextUniqueId = 0;
     'class': 'mat-error',
     'role': 'alert',
     '[attr.id]': 'id',
-  }
+  },
+  standalone: true,
 })
 export class MatError {
   @Input() id: string = `mat-error-${nextUniqueId++}`;

@@ -9,7 +9,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '../../../button';
 import { MatCardModule } from '@angular/material/card';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '../../../icon';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -34,7 +33,6 @@ import { NgxMatHighlightDirective } from '../shared/NgxMatHighlightDirective';
     MatSlideToggleModule,
     MatButtonModule,
     MatCardModule,
-    MatDatepickerModule,
     MatIconModule,
     MatRadioModule,
     MatCheckboxModule,

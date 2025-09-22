@@ -64,7 +64,6 @@ export const _MatButtonMixinBase:
  * Material design button.
  */
 @Component({
-  moduleId: module.id,
   selector: `button[mat-button], button[mat-raised-button], button[mat-icon-button],
              button[mat-fab], button[mat-mini-fab], button[mat-stroked-button],
              button[mat-flat-button]`,
@@ -74,10 +73,12 @@ export const _MatButtonMixinBase:
     '[class._mat-animation-noopable]': '_animationMode === "NoopAnimations"',
   },
   templateUrl: 'button.html',
-  styleUrls: ['button.css'],
+  styleUrls: ['button.scss'],
   inputs: ['disabled', 'disableRipple', 'color'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [MatRipple],
 })
 export class MatButton extends _MatButtonMixinBase
     implements OnDestroy, CanDisable, CanColor, CanDisableRipple {
@@ -144,7 +145,6 @@ export class MatButton extends _MatButtonMixinBase
  * Raised Material design button.
  */
 @Component({
-  moduleId: module.id,
   selector: `a[mat-button], a[mat-raised-button], a[mat-icon-button], a[mat-fab],
              a[mat-mini-fab], a[mat-stroked-button], a[mat-flat-button]`,
   exportAs: 'matButton, matAnchor',
@@ -160,9 +160,11 @@ export class MatButton extends _MatButtonMixinBase
   },
   inputs: ['disabled', 'disableRipple', 'color'],
   templateUrl: 'button.html',
-  styleUrls: ['button.css'],
+  styleUrls: ['button.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [MatRipple],
 })
 export class MatAnchor extends MatButton {
   /** Tabindex of the button. */

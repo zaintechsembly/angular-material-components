@@ -17,7 +17,6 @@ import { NgxMatDateAdapter } from './core/date-adapter';
 import { NgxMatDateFormats, NGX_MAT_DATE_FORMATS } from './core/date-formats';
 import { NgxMatDatetimePicker } from './datetime-picker.component';
 import { createMissingDateImplError } from './utils/date-utils';
-import { MatCalendarBody, MatCalendarCell, MatCalendarCellCssClasses } from '../custom/calendar-body';
 
 /** @docs-private */
 export const MAT_DATEPICKER_VALUE_ACCESSOR: any = {

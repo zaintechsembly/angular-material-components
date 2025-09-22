@@ -24,8 +24,11 @@ import {
   QueryList,
   ViewEncapsulation,
 } from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {Subject} from 'rxjs';
 import {MatOptgroup} from './optgroup';
+import {MatPseudoCheckbox} from '../selection/pseudo-checkbox/pseudo-checkbox';
+import {MatRipple} from '../ripple/ripple';
 
 /**
  * Option IDs need to be unique across components, so this counter exists outside of
@@ -62,7 +65,6 @@ export const MAT_OPTION_PARENT_COMPONENT =
  * Single option inside of a `<mat-select>` element.
  */
 @Component({
-  moduleId: module.id,
   selector: 'mat-option',
   exportAs: 'matOption',
   host: {
@@ -79,10 +81,12 @@ export const MAT_OPTION_PARENT_COMPONENT =
     '(keydown)': '_handleKeydown($event)',
     'class': 'mat-option',
   },
-  styleUrls: ['option.css'],
+  styleUrls: ['option.scss'],
   templateUrl: 'option.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, MatPseudoCheckbox, MatRipple],
 })
 export class MatOption implements AfterViewChecked, OnDestroy {
   private _selected = false;

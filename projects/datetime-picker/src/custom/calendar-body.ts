@@ -1,6 +1,20 @@
 /**
  * @license
- * Copyright Google LLC All Rights Reserved.
+ * Copyright Google LLC All R@Component({
+  selector: '[mat-calendar-body]',
+  templateUrl: 'calendar-body.html',
+  styleUrl: './calendar-body.css',
+  host: {
+    'class': 'mat-calendar-body',
+    'role': 'grid',
+    'aria-readonly': 'true',
+  },
+  exportAs: 'matCalendarBody',
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule],
+})
  *
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
@@ -18,6 +32,7 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {take} from 'rxjs/operators';
 
 /**
@@ -43,10 +58,9 @@ export class MatCalendarCell {
  * @docs-private
  */
 @Component({
-  moduleId: module.id,
   selector: '[mat-calendar-body]',
   templateUrl: 'calendar-body.html',
-  styleUrls: ['calendar-body.css'],
+  styleUrls: ['calendar-body.scss'],
   host: {
     'class': 'mat-calendar-body',
     'role': 'grid',
@@ -55,6 +69,8 @@ export class MatCalendarCell {
   exportAs: 'matCalendarBody',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule]
 })
 export class MatCalendarBody implements OnChanges {
   /** The label for the table. (e.g. "Jan 2017"). */

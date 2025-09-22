@@ -1,6 +1,6 @@
 @import '../core/style/variables';
 @import '../core/style/vendor-prefixes';
-@import '../../cdk/a11y/a11y';
+@import '../projects/datetime-picker/src/custom/a11y';
 
 
 // Styles that only apply to the legacy appearance of the form-field.

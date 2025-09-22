@@ -9,10 +9,10 @@
          [label]="_monthLabel"
          [rows]="_weeks"
          [todayValue]="_todayDate!"
-         [startValue]="_selectedDate!"
+         [selectedValue]="_selectedDate!"
          [labelMinRequiredCells]="3"
          [activeCell]="_dateAdapter.getDate(activeDate) - 1"
-         (selectedValueChange)="_dateSelected($event.value)"
+         (selectedValueChange)="_dateSelected($event)"
          (keydown)="_handleCalendarBodyKeydown($event)">
   </tbody>
 </table>

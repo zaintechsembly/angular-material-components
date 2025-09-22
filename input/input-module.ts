@@ -16,11 +16,12 @@ import {MatInput} from './input';
 
 
 @NgModule({
-  declarations: [MatInput, MatTextareaAutosize],
   imports: [
     CommonModule,
     TextFieldModule,
     MatFormFieldModule,
+    MatInput,
+    MatTextareaAutosize,
   ],
   exports: [
     TextFieldModule,

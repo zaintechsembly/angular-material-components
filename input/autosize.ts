@@ -25,6 +25,7 @@ import {Directive, Input} from '@angular/core';
     'rows': '1',
     '(input)': '_noopInputHandler()',
   },
+  standalone: true,
 })
 export class MatTextareaAutosize extends CdkTextareaAutosize {
   @Input()

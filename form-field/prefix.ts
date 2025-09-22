@@ -12,5 +12,6 @@ import {Directive} from '@angular/core';
 /** Prefix to be placed in front of the form field. */
 @Directive({
   selector: '[matPrefix]',
+  standalone: true,
 })
 export class MatPrefix {}

@@ -31,7 +31,8 @@ let dialogElementUid = 0;
     '(click)': 'dialogRef.close(dialogResult)',
     '[attr.aria-label]': 'ariaLabel || null',
     'type': 'button', // Prevents accidental form submits.
-  }
+  },
+  standalone: true,
 })
 export class MatDialogClose implements OnInit, OnChanges {
   /** Screenreader label for the button. */
@@ -77,6 +78,7 @@ export class MatDialogClose implements OnInit, OnChanges {
     'class': 'mat-dialog-title',
     '[id]': 'id',
   },
+  standalone: true,
 })
 export class MatDialogTitle implements OnInit {
   @Input() id = `mat-dialog-title-${dialogElementUid++}`;
@@ -109,7 +111,8 @@ export class MatDialogTitle implements OnInit {
  */
 @Directive({
   selector: `[mat-dialog-content], mat-dialog-content, [matDialogContent]`,
-  host: {'class': 'mat-dialog-content'}
+  host: {'class': 'mat-dialog-content'},
+  standalone: true,
 })
 export class MatDialogContent {}
 
@@ -120,7 +123,8 @@ export class MatDialogContent {}
  */
 @Directive({
   selector: `[mat-dialog-actions], mat-dialog-actions, [matDialogActions]`,
-  host: {'class': 'mat-dialog-actions'}
+  host: {'class': 'mat-dialog-actions'},
+  standalone: true,
 })
 export class MatDialogActions {}
 

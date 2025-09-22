@@ -23,7 +23,8 @@ import {MatCommonModule} from '../common-behaviors/common-module';
  */
 @Directive({
   selector: '[mat-line], [matLine]',
-  host: {'class': 'mat-line'}
+  host: {'class': 'mat-line'},
+  standalone: true,
 })
 export class MatLine {}
 
@@ -66,8 +67,7 @@ export class MatLineSetter {
 }
 
 @NgModule({
-  imports: [MatCommonModule],
+  imports: [MatCommonModule, MatLine],
   exports: [MatLine, MatCommonModule],
-  declarations: [MatLine],
 })
 export class MatLineModule { }

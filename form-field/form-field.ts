@@ -6,8 +6,10 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
+import {CommonModule} from '@angular/common';
 import {Directionality} from '@angular/cdk/bidi';
 import {coerceBooleanProperty} from '@angular/cdk/coercion';
+import {CdkObserveContent} from '@angular/cdk/observers';
 import {
   AfterContentChecked,
   AfterContentInit,
@@ -96,7 +98,6 @@ export const MAT_FORM_FIELD_DEFAULT_OPTIONS =
 
 /** Container for form controls that applies Material Design styling and behavior. */
 @Component({
-  moduleId: module.id,
   selector: 'mat-form-field',
   exportAs: 'matFormField',
   templateUrl: 'form-field.html',
@@ -104,12 +105,12 @@ export const MAT_FORM_FIELD_DEFAULT_OPTIONS =
   // in form-field-input.css. The MatInput styles are fairly minimal so it shouldn't be a
   // big deal for people who aren't using MatInput.
   styleUrls: [
-    'form-field.css',
-    'form-field-fill.css',
-    'form-field-input.css',
-    'form-field-legacy.css',
-    'form-field-outline.css',
-    'form-field-standard.css',
+    'form-field.scss',
+    'form-field-fill.scss',
+    'form-field-input.scss',
+    'form-field-legacy.scss',
+    'form-field-outline.scss',
+    'form-field-standard.scss',
   ],
   animations: [matFormFieldAnimations.transitionMessages],
   host: {
@@ -140,6 +141,8 @@ export const MAT_FORM_FIELD_DEFAULT_OPTIONS =
   inputs: ['color'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, CdkObserveContent],
 })
 
 export class MatFormField extends _MatFormFieldMixinBase

@@ -23,21 +23,21 @@ let _uniqueOptgroupIdCounter = 0;
  * Component that is used to group instances of `mat-option`.
  */
 @Component({
-  moduleId: module.id,
   selector: 'mat-optgroup',
   exportAs: 'matOptgroup',
   templateUrl: 'optgroup.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   inputs: ['disabled'],
-  styleUrls: ['optgroup.css'],
+  styleUrls: ['optgroup.scss'],
   host: {
     'class': 'mat-optgroup',
     'role': 'group',
     '[class.mat-optgroup-disabled]': 'disabled',
     '[attr.aria-disabled]': 'disabled.toString()',
     '[attr.aria-labelledby]': '_labelId',
-  }
+  },
+  standalone: true,
 })
 export class MatOptgroup extends _MatOptgroupMixinBase implements CanDisable {
   /** Label for the option group. */

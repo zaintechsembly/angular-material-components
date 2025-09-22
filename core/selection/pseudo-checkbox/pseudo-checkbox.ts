@@ -36,11 +36,10 @@ export type MatPseudoCheckboxState = 'unchecked' | 'checked' | 'indeterminate';
  * @docs-private
  */
 @Component({
-  moduleId: module.id,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'mat-pseudo-checkbox',
-  styleUrls: ['pseudo-checkbox.css'],
+  styleUrls: ['pseudo-checkbox.scss'],
   template: '',
   host: {
     'class': 'mat-pseudo-checkbox',
@@ -49,6 +48,7 @@ export type MatPseudoCheckboxState = 'unchecked' | 'checked' | 'indeterminate';
     '[class.mat-pseudo-checkbox-disabled]': 'disabled',
     '[class._mat-animation-noopable]': '_animationMode === "NoopAnimations"',
   },
+  standalone: true,
 })
 export class MatPseudoCheckbox {
   /** Display state of the checkbox. */

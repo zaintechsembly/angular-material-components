@@ -119,11 +119,10 @@ const funcIriPattern = /^url\(['"]?#(.*?)['"]?\)$/;
  *     `<mat-icon fontSet="fa" fontIcon="alarm"></mat-icon>`
  */
 @Component({
-  moduleId: module.id,
   template: '<ng-content></ng-content>',
   selector: 'mat-icon',
   exportAs: 'matIcon',
-  styleUrls: ['icon.css'],
+  styleUrls: ['icon.scss'],
   inputs: ['color'],
   host: {
     'role': 'img',
@@ -133,6 +132,7 @@ const funcIriPattern = /^url\(['"]?#(.*?)['"]?\)$/;
   },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class MatIcon extends _MatIconMixinBase implements OnChanges, OnInit, AfterViewChecked,
   CanColor, OnDestroy {

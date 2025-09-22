@@ -47,10 +47,9 @@ export function throwMatDialogContentAlreadyAttachedError() {
  * @docs-private
  */
 @Component({
-  moduleId: module.id,
   selector: 'mat-dialog-container',
   templateUrl: 'dialog-container.html',
-  styleUrls: ['dialog.css'],
+  styleUrls: ['dialog.scss'],
   encapsulation: ViewEncapsulation.None,
   // Using OnPush for dialogs caused some G3 sync issues. Disabled until we can track them down.
   // tslint:disable-next-line:validate-decorators
@@ -69,6 +68,8 @@ export function throwMatDialogContentAlreadyAttachedError() {
     '(@dialogContainer.start)': '_onAnimationStart($event)',
     '(@dialogContainer.done)': '_onAnimationDone($event)',
   },
+  standalone: true,
+  imports: [CdkPortalOutlet],
 })
 export class MatDialogContainer extends BasePortalOutlet {
   /** The portal outlet inside of this container into which the dialog content will be loaded. */

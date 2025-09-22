@@ -10,7 +10,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import {PortalModule} from '@angular/cdk/portal';
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {MatCommonModule} from '@angular/material/core';
+import {MatCommonModule} from '../core';
 import {MAT_DIALOG_SCROLL_STRATEGY_PROVIDER, MatDialog} from './dialog';
 import {MatDialogContainer} from './dialog-container';
 import {
@@ -27,6 +27,11 @@ import {
     OverlayModule,
     PortalModule,
     MatCommonModule,
+    MatDialogContainer,
+    MatDialogClose,
+    MatDialogTitle,
+    MatDialogActions,
+    MatDialogContent,
   ],
   exports: [
     MatDialogContainer,
@@ -36,17 +41,9 @@ import {
     MatDialogActions,
     MatCommonModule,
   ],
-  declarations: [
-    MatDialogContainer,
-    MatDialogClose,
-    MatDialogTitle,
-    MatDialogActions,
-    MatDialogContent,
-  ],
   providers: [
     MatDialog,
     MAT_DIALOG_SCROLL_STRATEGY_PROVIDER,
   ],
-  entryComponents: [MatDialogContainer],
 })
 export class MatDialogModule {}

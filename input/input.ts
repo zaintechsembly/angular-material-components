@@ -88,6 +88,7 @@ export const _MatInputMixinBase: CanUpdateErrorStateCtor & typeof MatInputBase =
     '(input)': '_onInput()',
   },
   providers: [{provide: MatFormFieldControl, useExisting: MatInput}],
+  standalone: true,
 })
 export class MatInput extends _MatInputMixinBase implements MatFormFieldControl<any>, OnChanges,
     OnDestroy, OnInit, DoCheck, CanUpdateErrorState {

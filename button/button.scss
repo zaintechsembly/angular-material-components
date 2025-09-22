@@ -2,7 +2,7 @@
 // TODO(jelbourn): Figure out if anchor hover underline actually happens in any browser.
 @import 'button-base';
 @import '../core/style/layout-common';
-@import '../../cdk/a11y/a11y';
+@import '../projects/datetime-picker/src/custom/a11y';
 
 .mat-button, .mat-icon-button {
   .mat-button-focus-overlay {

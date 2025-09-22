@@ -21,7 +21,8 @@ let nextUniqueId = 0;
     '[attr.id]': 'id',
     // Remove align attribute to prevent it from interfering with layout.
     '[attr.align]': 'null',
-  }
+  },
+  standalone: true,
 })
 export class MatHint {
   /** Whether to align the hint label at the start or end of the line. */
