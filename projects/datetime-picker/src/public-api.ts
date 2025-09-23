@@ -16,3 +16,9 @@ export * from './lib/core/native-date-adapter';
 export * from './lib/core/native-date-formats';
 export * from './lib/core/date-formats';
 export * from './lib/core/native-date.module';
+
+// Material modules re-exports
+export { MatButtonModule } from './lib/material/button/public-api';
+export { MatDatepickerModule } from './lib/material/datepicker/public-api';
+export { MatIconModule } from './lib/material/icon/public-api';
+export { MatInputModule } from './lib/material/input/public-api';

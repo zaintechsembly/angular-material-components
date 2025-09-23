@@ -2,11 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { FormControl, ReactiveFormsModule } from "@angular/forms";
 import { ThemePalette } from "@angular/material/core";
 import { CommonModule } from "@angular/common";
-import { MatButtonModule } from "../../../projects/datetime-picker/src/lib/material/button/public-api";
-import { MatDatepickerModule } from "../../../projects/datetime-picker/src/lib/material/datepicker/public-api";
-import { MatIconModule } from "../../../projects/datetime-picker/src/lib/material/icon/public-api";
-import { MatInputModule } from "../../../projects/datetime-picker/src/lib/material/input/public-api";
-import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from 'projects/datetime-picker/src/public-api';
+import { MatButtonModule, MatDatepickerModule, MatIconModule, MatInputModule, NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from 'projects/datetime-picker/src/public-api';
 import { NgxMatHighlightDirective } from '../shared/NgxMatHighlightDirective';
 import { MatTabsModule } from '@angular/material/tabs';
 
