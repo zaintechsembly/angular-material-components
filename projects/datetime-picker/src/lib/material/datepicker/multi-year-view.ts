@@ -45,7 +45,8 @@ export const yearsPerRow = 4;
  * @docs-private
  */
 @Component({
-  
+  standalone: true,
+  imports: [MatCalendarBody],
   selector: 'mat-multi-year-view',
   templateUrl: 'multi-year-view.html',
   exportAs: 'matMultiYearView',

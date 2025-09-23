@@ -67,6 +67,7 @@ export const _MatInputMixinBase: CanUpdateErrorStateCtor & typeof MatInputBase =
   selector: `input[matInput], textarea[matInput], select[matNativeControl],
       input[matNativeControl], textarea[matNativeControl]`,
   exportAs: 'matInput',
+  standalone: true,
   host: {
     /**
      * @breaking-change 8.0.0 remove .mat-form-field-autofill-control in favor of AutofillMonitor.

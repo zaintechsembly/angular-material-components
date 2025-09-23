@@ -8,6 +8,8 @@
 
 import {Directionality} from '@angular/cdk/bidi';
 import {coerceBooleanProperty} from '@angular/cdk/coercion';
+import {ObserversModule} from '@angular/cdk/observers';
+import {CommonModule} from '@angular/common';
 import {
   AfterContentChecked,
   AfterContentInit,
@@ -96,9 +98,10 @@ export const MAT_FORM_FIELD_DEFAULT_OPTIONS =
 
 /** Container for form controls that applies Material Design styling and behavior. */
 @Component({
-  
   selector: 'mat-form-field',
   exportAs: 'matFormField',
+  standalone: true,
+  imports: [CommonModule, ObserversModule],
   templateUrl: 'form-field.html',
   // MatInput is a directive and can't have styles, so we need to include its styles here
   // in form-field-input.css. The MatInput styles are fairly minimal so it shouldn't be a

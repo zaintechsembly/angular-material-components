@@ -41,7 +41,8 @@ import {createMissingDateImplError} from './datepicker-errors';
  * @docs-private
  */
 @Component({
-  
+  standalone: true,
+  imports: [MatCalendarBody],
   selector: 'mat-year-view',
   templateUrl: 'year-view.html',
   exportAs: 'matYearView',

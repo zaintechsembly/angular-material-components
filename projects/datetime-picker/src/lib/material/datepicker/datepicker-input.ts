@@ -72,6 +72,7 @@ export class MatDatepickerInputEvent<D> {
 
 /** Directive used to connect an input to a MatDatepicker. */
 @Directive({
+  standalone: true,
   selector: 'input[matDatepicker]',
   providers: [
     MAT_DATEPICKER_VALUE_ACCESSOR,

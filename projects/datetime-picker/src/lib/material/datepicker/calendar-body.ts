@@ -6,6 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
+import {CommonModule} from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -43,8 +44,9 @@ export class MatCalendarCell {
  * @docs-private
  */
 @Component({
-  
   selector: '[mat-calendar-body]',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: 'calendar-body.html',
   styleUrls: ['calendar-body.scss'],
   host: {

@@ -17,7 +17,7 @@ import {
   ScrollStrategy,
 } from '@angular/cdk/overlay';
 import {ComponentPortal, ComponentType} from '@angular/cdk/portal';
-import {DOCUMENT} from '@angular/common';
+import {CommonModule, DOCUMENT} from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -87,8 +87,9 @@ export const _MatDatepickerContentMixinBase: CanColorCtor & typeof MatDatepicker
  * @docs-private
  */
 @Component({
-  
   selector: 'mat-datepicker-content',
+  standalone: true,
+  imports: [CommonModule, MatCalendar],
   templateUrl: 'datepicker-content.html',
   styleUrls: ['datepicker-content.scss'],
   host: {
@@ -132,7 +133,7 @@ export class MatDatepickerContent<D> extends _MatDatepickerContentMixinBase
 // if angular adds support for `exportAs: '$implicit'` on directives.
 /** Component responsible for managing the datepicker popup/dialog. */
 @Component({
-  
+  standalone: true,
   selector: 'mat-datepicker',
   template: '',
   exportAs: 'matDatepicker',

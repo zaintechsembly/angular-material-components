@@ -70,13 +70,13 @@ export class FocusMonitor implements OnDestroy {
   private _lastTouchTarget: EventTarget | null;
 
   /** The timeout id of the touch timeout, used to cancel timeout later. */
-  private _touchTimeoutId: number;
+  private _touchTimeoutId: any;
 
   /** The timeout id of the window focus timeout. */
-  private _windowFocusTimeoutId: number;
+  private _windowFocusTimeoutId: any;
 
   /** The timeout id of the origin clearing timeout. */
-  private _originTimeoutId: number;
+  private _originTimeoutId: any;
 
   /** Map of elements being monitored to their info. */
   private _elementInfo = new Map<HTMLElement, MonitoredElementInfo>();
@@ -433,6 +433,7 @@ export class FocusMonitor implements OnDestroy {
  */
 @Directive({
   selector: '[cdkMonitorElementFocus], [cdkMonitorSubtreeFocus]',
+  standalone: true,
 })
 export class CdkMonitorFocus implements OnDestroy {
   private _monitorSubscription: Subscription;

@@ -27,6 +27,11 @@ import {
     OverlayModule,
     PortalModule,
     MatCommonModule,
+    MatDialogContainer,
+    MatDialogClose,
+    MatDialogTitle,
+    MatDialogActions,
+    MatDialogContent,
   ],
   exports: [
     MatDialogContainer,
@@ -36,17 +41,9 @@ import {
     MatDialogActions,
     MatCommonModule,
   ],
-  declarations: [
-    MatDialogContainer,
-    MatDialogClose,
-    MatDialogTitle,
-    MatDialogActions,
-    MatDialogContent,
-  ],
   providers: [
     MatDialog,
     MAT_DIALOG_SCROLL_STRATEGY_PROVIDER,
   ],
-  entryComponents: [MatDialogContainer],
 })
 export class MatDialogModule {}

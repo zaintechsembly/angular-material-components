@@ -15,6 +15,7 @@ let nextUniqueId = 0;
 /** Single error message to be shown underneath the form field. */
 @Directive({
   selector: 'mat-error',
+  standalone: true,
   host: {
     'class': 'mat-error',
     'role': 'alert',

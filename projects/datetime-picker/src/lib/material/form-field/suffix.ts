@@ -1,5 +1,8 @@
 /**
- * @license
+ * @lice@Directive({
+  selector: '[matSuffix]',
+  standalone: true,
+})
  * Copyright Google LLC All Rights Reserved.
  *
  * Use of this source code is governed by an MIT-style license that can be

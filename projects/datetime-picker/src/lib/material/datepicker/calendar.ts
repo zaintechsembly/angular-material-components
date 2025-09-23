@@ -7,6 +7,7 @@
  */
 
 import {ComponentPortal, ComponentType, Portal} from '@angular/cdk/portal';
+import {CommonModule} from '@angular/common';
 import {
   AfterContentInit,
   AfterViewChecked,
@@ -42,8 +43,8 @@ export type MatCalendarView = 'month' | 'year' | 'multi-year';
 
 /** Default header for MatCalendar */
 @Component({
-  
   selector: 'mat-calendar-header',
+  standalone: true,
   templateUrl: 'calendar-header.html',
   exportAs: 'matCalendarHeader',
   encapsulation: ViewEncapsulation.None,
@@ -159,8 +160,9 @@ export class MatCalendarHeader<D> {
  * @docs-private
  */
 @Component({
-  
   selector: 'mat-calendar',
+  standalone: true,
+  imports: [CommonModule, MatMonthView, MatYearView, MatMultiYearView],
   templateUrl: 'calendar.html',
   styleUrls: ['calendar.scss'],
   host: {

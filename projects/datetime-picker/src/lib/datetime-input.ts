@@ -55,6 +55,7 @@ export class MatDatetimePickerInputEvent<D> {
 /** Directive used to connect an input to a matDatetimePicker. */
 @Directive({
     selector: 'input[ngxMatDatetimePicker]',
+    standalone: true,
     providers: [
         MAT_DATEPICKER_VALUE_ACCESSOR,
         MAT_DATEPICKER_VALIDATORS,

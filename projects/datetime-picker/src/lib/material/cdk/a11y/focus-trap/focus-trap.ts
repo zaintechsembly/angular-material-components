@@ -360,6 +360,7 @@ export class FocusTrapFactory {
 @Directive({
   selector: '[cdkTrapFocus]',
   exportAs: 'cdkTrapFocus',
+  standalone: true,
 })
 export class CdkTrapFocus implements OnDestroy, AfterContentInit, DoCheck {
   private _document: Document;

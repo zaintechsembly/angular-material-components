@@ -23,9 +23,9 @@ let _uniqueOptgroupIdCounter = 0;
  * Component that is used to group instances of `mat-option`.
  */
 @Component({
-  
   selector: 'mat-optgroup',
   exportAs: 'matOptgroup',
+  standalone: true,
   templateUrl: 'optgroup.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,

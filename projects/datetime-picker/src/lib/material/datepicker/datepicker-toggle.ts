@@ -7,6 +7,7 @@
  */
 
 import {coerceBooleanProperty} from '@angular/cdk/coercion';
+import {CommonModule} from '@angular/common';
 import {
   AfterContentInit,
   Attribute,
@@ -30,13 +31,15 @@ import {MatDatepickerIntl} from './datepicker-intl';
 
 /** Can be used to override the icon of a `matDatepickerToggle`. */
 @Directive({
+  standalone: true,
   selector: '[matDatepickerToggleIcon]'
 })
 export class MatDatepickerToggleIcon {}
 
 
 @Component({
-  
+  standalone: true,
+  imports: [CommonModule, MatButton],
   selector: 'mat-datepicker-toggle',
   templateUrl: 'datepicker-toggle.html',
   styleUrls: ['datepicker-toggle.scss'],
@@ -117,12 +120,12 @@ export class MatDatepickerToggle<D> implements AfterContentInit, OnChanges, OnDe
   }
 
   private _watchStateChanges() {
-    const datepickerDisabled = this.datepicker ? this.datepicker._disabledChange : observableOf();
+    const datepickerDisabled = this.datepicker ? this.datepicker._disabledChange : observableOf(false);
     const inputDisabled = this.datepicker && this.datepicker._datepickerInput ?
-        this.datepicker._datepickerInput._disabledChange : observableOf();
+        this.datepicker._datepickerInput._disabledChange : observableOf(false);
     const datepickerToggled = this.datepicker ?
         merge(this.datepicker.openedStream, this.datepicker.closedStream) :
-        observableOf();
+        observableOf(false);
 
     this._stateChanges.unsubscribe();
     this._stateChanges = merge(

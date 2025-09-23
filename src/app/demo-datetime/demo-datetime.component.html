@@ -1,6 +1,6 @@
 <mat-tab-group>
   <mat-tab label="API">
-    <h1>API reference for @angular-material-components/datetime-picker</h1>
+    <h1>API reference for angular-material-components/datetime-picker</h1>
     <h2>Getting started</h2>
 
     <a href="https://www.npmjs.com/package/@angular-material-components/datetime-picker" target="_blank">
@@ -15,7 +15,7 @@
       </code>
     </pre>
 
-    <h2>Properties @Input</h2>
+    <h2>Properties Input</h2>
     <table class="api-table-properties">
       <tbody>
         <tr>
@@ -200,17 +200,17 @@
         </tr>
         <tr>
           <td>Import from </td>
-          <td>@angular-material-components/datetime-picker</td>
+          <td>angular-material-components/datetime-picker</td>
           <td>Built-in Date Adapter</td>
         </tr>
       </tbody>
     </table>
 
     To use <strong>NgxMatMomentModule</strong>:
-    <pre><code>{{code4}}</code></pre>
+    <!-- <pre><code>{{code4}}</code></pre> -->
 
     <p>Please note: <strong>NgxMatNativeDateModule</strong> is based off the functionality available in JavaScript's
-      native Date object. Thus it is not suitable for many locales. One of the biggest shortcomings of the native Date
+      <!-- native Date object. Thus it is not suitable for many locales. One of the biggest shortcomings of the native Date -->
       object is the inability to set the parse format.</p>
     <p>We highly recommend using the <strong>NgxMatMomentModule</strong> or a custom <strong>NgxMatDateAdapter</strong>
       that works with the formatting/parsing library of your choice.</p>
@@ -224,7 +224,7 @@
     <pre><code ngxMatHighlight class="language-typescript">{{code7}}</code></pre>
 
     <h2>Theming</h2>
-    <p>@see @angular/material <a href="https://material.angular.io/guide/theming#using-a-pre-built-theme">Using a
+    <p>see angular/material <a href="https://material.angular.io/guide/theming#using-a-pre-built-theme">Using a
         pre-built theme</a></p>
     <p>Add the Material Design icon font to your index.html</p>
     <pre><code ngxMatHighlight class="language-css">{{code8}}</code></pre>
@@ -245,103 +245,6 @@
           [enableMeridian]="enableMeridian" [disableMinute]="disableMinute" [hideTime]="hideTime">
         </ngx-mat-datetime-picker>
       </mat-form-field>
-    </div>
-
-    <div class="zone zone-config" style="padding: 16px; margin: 16px; border: 1px solid #ddd; border-radius: 4px;">
-      <div class="config-wrapper" style="margin: 8px 0;">
-        <label>
-          <input type="checkbox" [(ngModel)]="disabled" style="margin-right: 8px;">
-          disabled (Default: false)
-        </label>
-      </div>
-
-      <div class="config-wrapper" style="margin: 8px 0;">
-        <label>
-          <input type="checkbox" [(ngModel)]="showSpinners" style="margin-right: 8px;">
-          showSpinners (Default: true)
-        </label>
-      </div>
-
-      <div class="config-wrapper" style="margin: 8px 0;">
-        <label>
-          <input type="checkbox" [(ngModel)]="showSeconds" style="margin-right: 8px;">
-          showSeconds (Default: false)
-        </label>
-      </div>
-
-      <div class="config-wrapper" style="margin: 8px 0;">
-        <label>
-          <input type="checkbox" [(ngModel)]="disableMinute" style="margin-right: 8px;">
-          disableMinute (Default: false)
-        </label>
-      </div>
-
-      <div class="config-wrapper" style="margin: 8px 0;">
-        <label>
-          <input type="checkbox" [(ngModel)]="touchUi" style="margin-right: 8px;">
-          touchUi (Default: false)
-        </label>
-      </div>
-
-      <div class="config-wrapper" style="margin: 8px 0;">
-        <label>
-          <input type="checkbox" [(ngModel)]="hideTime" style="margin-right: 8px;">
-          hideTime (Default: false)
-        </label>
-      </div>
-
-      <div class="config-wrapper" style="margin: 8px 0;">
-        <label>
-          <input type="checkbox" [(ngModel)]="enableMeridian" style="margin-right: 8px;">
-          enableMeridian (Default: false)
-        </label>
-      </div>
-
-      <div class="config-wrapper config-wrapper_step" style="margin: 16px 0;">
-        <span class="label">Steps: </span>
-        <div style="display: flex; gap: 16px; align-items: center;">
-          <div>
-            <label>Hour (default: 1):</label>
-            <select [(ngModel)]="stepHour" style="margin-left: 8px; padding: 4px;">
-              <option *ngFor="let step of stepHours" [value]="step">{{step}}</option>
-            </select>
-          </div>
-          <div>
-            <label>Minute (default: 1):</label>
-            <select [(ngModel)]="stepMinute" style="margin-left: 8px; padding: 4px;">
-              <option *ngFor="let step of stepMinutes" [value]="step">{{step}}</option>
-            </select>
-          </div>
-          <div>
-            <label>Second (default: 1):</label>
-            <select [(ngModel)]="stepSecond" style="margin-left: 8px; padding: 4px;">
-              <option *ngFor="let step of stepSeconds" [value]="step">{{step}}</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div class="config-wrapper" style="margin: 8px 0;">
-        <label>Color (Default: primary):</label>
-        <select [(ngModel)]="color" style="margin-left: 8px; padding: 4px;">
-          <option *ngFor="let item of listColors" [value]="item">{{item}}</option>
-        </select>
-      </div>
-
-      <div class="config-wrapper" style="margin: 8px 0;">
-        <label>
-          <input type="checkbox" (change)="toggleMinDate($event)" style="margin-right: 8px;">
-          Min date (Default: null, Demo: now - 1 day) = {{minDate?.toLocaleString()}}
-        </label>
-      </div>
-
-      <div class="config-wrapper" style="margin: 8px 0;">
-        <label>
-          <input type="checkbox" (change)="toggleMaxDate($event)" style="margin-right: 8px;">
-          Max date (Default: null, Demo: now + 2 days) = {{maxDate?.toLocaleString()}}
-        </label>
-      </div>
-
     </div>
 
     <pre><code ngxMatHighlight class="language-html">{{code3}}</code></pre>

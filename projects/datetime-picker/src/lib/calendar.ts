@@ -6,9 +6,10 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-import { ComponentPortal, ComponentType, Portal } from '@angular/cdk/portal';
+import { ComponentPortal, ComponentType, Portal, PortalModule } from '@angular/cdk/portal';
 import { AfterContentInit, AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, forwardRef, Inject, Input, OnChanges, OnDestroy, Optional, Output, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { A11yModule } from '@angular/cdk/a11y';
 import { MatCalendarCellCssClasses, MatDatepickerIntl } from './material/datepicker/public-api';
 import { Subject, Subscription } from 'rxjs';
 import { NgxMatDateAdapter } from './core/date-adapter';
@@ -35,6 +36,7 @@ export type MatCalendarView = 'month' | 'year' | 'multi-year';
     CommonModule,
     MatButtonModule,
     MatIconModule,
+    A11yModule,
   ],
   exportAs: 'ngxMatCalendarHeader',
   encapsulation: ViewEncapsulation.None,
@@ -161,7 +163,7 @@ export class NgxMatCalendarHeader<D> {
   templateUrl: 'calendar.html',
   styleUrls: ['calendar.scss'],
   standalone: true,
-  imports: [CommonModule, NgxMatCalendarHeader, NgxMatMonthView, NgxMatYearView, NgxMatMultiYearView],
+  imports: [CommonModule, PortalModule, A11yModule, NgxMatCalendarHeader, NgxMatMonthView, NgxMatYearView, NgxMatMultiYearView],
   host: {
     'class': 'mat-calendar',
   },

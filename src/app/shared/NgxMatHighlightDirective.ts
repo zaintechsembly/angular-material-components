@@ -1,5 +1,5 @@
 import { Directive, ElementRef, AfterViewInit } from '@angular/core';
-import * as hljs from 'highlight.js';
+import hljs from 'highlight.js';
 
 @Directive({
     selector: 'code[ngxMatHighlight]',

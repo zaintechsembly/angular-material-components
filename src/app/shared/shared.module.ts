@@ -4,8 +4,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 
 
 @NgModule({
-  imports: [MatTabsModule],
-  declarations: [NgxMatHighlightDirective],
+  imports: [MatTabsModule, NgxMatHighlightDirective],
   exports: [NgxMatHighlightDirective, MatTabsModule]
 })
 export class SharedModule { }

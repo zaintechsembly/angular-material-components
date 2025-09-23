@@ -27,6 +27,7 @@ let dialogElementUid = 0;
 @Directive({
   selector: `button[mat-dialog-close], button[matDialogClose]`,
   exportAs: 'matDialogClose',
+  standalone: true,
   host: {
     '(click)': 'dialogRef.close(dialogResult)',
     '[attr.aria-label]': 'ariaLabel || null',
@@ -73,6 +74,7 @@ export class MatDialogClose implements OnInit, OnChanges {
 @Directive({
   selector: '[mat-dialog-title], [matDialogTitle]',
   exportAs: 'matDialogTitle',
+  standalone: true,
   host: {
     'class': 'mat-dialog-title',
     '[id]': 'id',
@@ -109,6 +111,7 @@ export class MatDialogTitle implements OnInit {
  */
 @Directive({
   selector: `[mat-dialog-content], mat-dialog-content, [matDialogContent]`,
+  standalone: true,
   host: {'class': 'mat-dialog-content'}
 })
 export class MatDialogContent {}
@@ -120,6 +123,7 @@ export class MatDialogContent {}
  */
 @Directive({
   selector: `[mat-dialog-actions], mat-dialog-actions, [matDialogActions]`,
+  standalone: true,
   host: {'class': 'mat-dialog-actions'}
 })
 export class MatDialogActions {}

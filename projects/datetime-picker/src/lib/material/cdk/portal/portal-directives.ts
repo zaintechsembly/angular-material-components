@@ -29,6 +29,7 @@ import {BasePortalOutlet, ComponentPortal, Portal, TemplatePortal} from './porta
 @Directive({
   selector: '[cdk-portal], [cdkPortal], [portal]',
   exportAs: 'cdkPortal',
+  standalone: true,
 })
 export class CdkPortal extends TemplatePortal {
   constructor(templateRef: TemplateRef<any>, viewContainerRef: ViewContainerRef) {
@@ -52,6 +53,7 @@ export type CdkPortalOutletAttachedRef = ComponentRef<any> | EmbeddedViewRef<any
 @Directive({
   selector: '[cdkPortalOutlet], [cdkPortalHost], [portalHost]',
   exportAs: 'cdkPortalOutlet, cdkPortalHost',
+  standalone: true,
   inputs: ['portal: cdkPortalOutlet']
 })
 export class CdkPortalOutlet extends BasePortalOutlet implements OnInit, OnDestroy {
@@ -160,7 +162,7 @@ export class CdkPortalOutlet extends BasePortalOutlet implements OnInit, OnDestr
 
 
 @NgModule({
+  imports: [CdkPortal, CdkPortalOutlet],
   exports: [CdkPortal, CdkPortalOutlet],
-  declarations: [CdkPortal, CdkPortalOutlet],
 })
 export class PortalModule {}

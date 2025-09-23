@@ -37,9 +37,7 @@ const routes: Routes = [
     // MatCheckboxModule,
     MatIconModule,
     // MatCardModule,
-    SharedModule
-  ],
-  declarations: [
+    SharedModule,
     DemoDatetimeComponent
   ]
 })

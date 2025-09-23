@@ -8,6 +8,7 @@
 
 import {coerceBooleanProperty} from '@angular/cdk/coercion';
 import {ENTER, SPACE, hasModifierKey} from '@angular/cdk/keycodes';
+import {CommonModule} from '@angular/common';
 import {
   AfterViewChecked,
   ChangeDetectionStrategy,
@@ -26,6 +27,8 @@ import {
 } from '@angular/core';
 import {Subject} from 'rxjs';
 import {MatOptgroup} from './optgroup';
+import {MatPseudoCheckbox} from '../selection/index';
+import {MatRipple} from '../ripple/index';
 
 /**
  * Option IDs need to be unique across components, so this counter exists outside of
@@ -62,9 +65,10 @@ export const MAT_OPTION_PARENT_COMPONENT =
  * Single option inside of a `<mat-select>` element.
  */
 @Component({
-  
   selector: 'mat-option',
   exportAs: 'matOption',
+  standalone: true,
+  imports: [CommonModule, MatPseudoCheckbox, MatRipple],
   host: {
     'role': 'option',
     '[attr.tabindex]': '_getTabIndex()',

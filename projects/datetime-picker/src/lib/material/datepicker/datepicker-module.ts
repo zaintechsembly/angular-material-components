@@ -36,8 +36,6 @@ import {MatYearView} from './year-view';
     OverlayModule,
     A11yModule,
     PortalModule,
-  ],
-  exports: [
     MatCalendar,
     MatCalendarBody,
     MatDatepicker,
@@ -50,7 +48,7 @@ import {MatYearView} from './year-view';
     MatMultiYearView,
     MatCalendarHeader,
   ],
-  declarations: [
+  exports: [
     MatCalendar,
     MatCalendarBody,
     MatDatepicker,
@@ -67,9 +65,5 @@ import {MatYearView} from './year-view';
     MatDatepickerIntl,
     MAT_DATEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER,
   ],
-  entryComponents: [
-    MatDatepickerContent,
-    MatCalendarHeader,
-  ]
 })
 export class MatDatepickerModule {}

@@ -47,8 +47,8 @@ export function throwMatDialogContentAlreadyAttachedError() {
  * @docs-private
  */
 @Component({
-  
   selector: 'mat-dialog-container',
+  standalone: true,
   templateUrl: 'dialog-container.html',
   styleUrls: ['dialog.scss'],
   encapsulation: ViewEncapsulation.None,

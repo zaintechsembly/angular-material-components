@@ -31,7 +31,7 @@ export type AriaLivePoliteness = 'off' | 'polite' | 'assertive';
 export class LiveAnnouncer implements OnDestroy {
   private _liveElement: HTMLElement;
   private _document: Document;
-  private _previousTimeout?: number;
+  private _previousTimeout?: any;
 
   constructor(
       @Optional() @Inject(LIVE_ANNOUNCER_ELEMENT_TOKEN) elementToken: any,
@@ -168,6 +168,7 @@ export class LiveAnnouncer implements OnDestroy {
 @Directive({
   selector: '[cdkAriaLive]',
   exportAs: 'cdkAriaLive',
+  standalone: true,
 })
 export class CdkAriaLive implements OnDestroy {
   /** The aria-live politeness level to use when announcing messages. */

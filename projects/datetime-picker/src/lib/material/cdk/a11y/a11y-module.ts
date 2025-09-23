@@ -15,8 +15,7 @@ import {CdkTrapFocus} from './focus-trap/focus-trap';
 import {CdkAriaLive} from './live-announcer/live-announcer';
 
 @NgModule({
-  imports: [CommonModule, PlatformModule, ObserversModule],
-  declarations: [CdkAriaLive, CdkTrapFocus, CdkMonitorFocus],
+  imports: [CommonModule, PlatformModule, ObserversModule, CdkAriaLive, CdkTrapFocus, CdkMonitorFocus],
   exports: [CdkAriaLive, CdkTrapFocus, CdkMonitorFocus],
 })
 export class A11yModule {}

@@ -25,6 +25,7 @@ import {fromEvent, Subject} from 'rxjs';
 @Directive({
   selector: 'textarea[cdkTextareaAutosize]',
   exportAs: 'cdkTextareaAutosize',
+  standalone: true,
   host: {
     'class': 'cdk-textarea-autosize',
     // Textarea elements that have the directive applied should have a single row by default.

@@ -17,6 +17,7 @@ import {Directive, Input} from '@angular/core';
 @Directive({
   selector: 'textarea[mat-autosize], textarea[matTextareaAutosize]',
   exportAs: 'matTextareaAutosize',
+  standalone: true,
   inputs: ['cdkAutosizeMinRows', 'cdkAutosizeMaxRows'],
   host: {
     'class': 'cdk-textarea-autosize mat-autosize',

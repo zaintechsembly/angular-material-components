@@ -119,10 +119,10 @@ const funcIriPattern = /^url\(['"]?#(.*?)['"]?\)$/;
  *     `<mat-icon fontSet="fa" fontIcon="alarm"></mat-icon>`
  */
 @Component({
-  
   template: '<ng-content></ng-content>',
   selector: 'mat-icon',
   exportAs: 'matIcon',
+  standalone: true,
   styleUrls: ['icon.scss'],
   inputs: ['color'],
   host: {

@@ -11,7 +11,7 @@ import {Dir} from './dir';
 
 
 @NgModule({
+  imports: [Dir],
   exports: [Dir],
-  declarations: [Dir],
 })
 export class BidiModule { }

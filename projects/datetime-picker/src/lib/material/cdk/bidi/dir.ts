@@ -25,6 +25,7 @@ import {Direction, Directionality} from './directionality';
  */
 @Directive({
   selector: '[dir]',
+  standalone: true,
   providers: [{provide: Directionality, useExisting: Dir}],
   host: {'[attr.dir]': '_rawDir'},
   exportAs: 'dir',

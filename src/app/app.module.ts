@@ -16,11 +16,11 @@ const appRoutes: Routes = [
   { path: "home", component: HomeComponent },
   {
     path: "datetimepicker",
-    loadChildren: "./demo-datetime/demo-datetime.module#DemoDatetimeModule",
+    loadComponent: () => import("./demo-datetime/demo-datetime.component").then(m => m.DemoDatetimeComponent),
   },
   {
-    path: "timepicker",
-    loadChildren: "./demo-time/demo-time.module#DemoTimeModule",
+    path: "timepicker", 
+    loadComponent: () => import("./demo-time/demo-time.component").then(m => m.DemoTimeComponent),
   },
   { path: "", redirectTo: "/datetimepicker", pathMatch: "full" },
   { path: "**", redirectTo: "/datetimepicker", pathMatch: "full" },
@@ -33,7 +33,6 @@ const appRoutes: Routes = [
 export class AppRoutingModule {}
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -45,6 +44,8 @@ export class AppRoutingModule {}
     MatIconModule,
     MatListModule,
     MatCardModule,
+    AppComponent,
+    HomeComponent,
   ],
   bootstrap: [AppComponent],
 })

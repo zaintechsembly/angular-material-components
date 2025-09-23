@@ -51,6 +51,7 @@ export const MAT_RIPPLE_GLOBAL_OPTIONS =
 @Directive({
   selector: '[mat-ripple], [matRipple]',
   exportAs: 'matRipple',
+  standalone: true,
   host: {
     'class': 'mat-ripple',
     '[class.mat-ripple-unbounded]': 'unbounded'
