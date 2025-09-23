@@ -22,8 +22,8 @@
     "ng": "ng",
    "start": "ng serve --port 4600",
     "build": "ng build NgxMatDatetimePicker",
-    "pack": "cd dist/@mehranjavid/datetime-picker && npm pack --pack-destination ../../../build",
-    "publish": "cd dist/@mehranjavid/datetime-picker && npm publish"
+    "pack": "cd dist/datetime-picker && npm pack --pack-destination ../../build",
+    "publish": "cd dist/datetime-picker && npm publish"
   },
   "private": false,
   "dependencies": {
