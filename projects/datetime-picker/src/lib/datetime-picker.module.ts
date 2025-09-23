@@ -25,7 +25,15 @@ import { NgxMatYearView } from './year-view';
       MatIconModule,
       MatButtonModule,
       MatInputModule,
-      NgxMatTimepickerModule
+      NgxMatTimepickerModule,
+      NgxMatDatetimePicker,
+      NgxMatDatetimeContent,
+      NgxMatDatetimeInput,
+      NgxMatCalendar,
+      NgxMatMonthView,
+      NgxMatYearView,
+      NgxMatMultiYearView,
+      NgxMatCalendarHeader
    ],
    exports: [
       NgxMatDatetimePicker,
@@ -34,20 +42,6 @@ import { NgxMatYearView } from './year-view';
       NgxMatMonthView,
       NgxMatYearView,
       NgxMatMultiYearView,
-      NgxMatCalendarHeader
-   ],
-   declarations: [
-      NgxMatDatetimePicker,
-      NgxMatDatetimeContent,
-      NgxMatDatetimeInput,
-      NgxMatCalendar,
-      NgxMatMonthView,
-      NgxMatYearView,
-      NgxMatMultiYearView,
-      NgxMatCalendarHeader
-   ],
-   entryComponents: [
-      NgxMatDatetimeContent,
       NgxMatCalendarHeader
    ],
    providers: [

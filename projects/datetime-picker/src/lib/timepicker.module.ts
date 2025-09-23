@@ -14,11 +14,9 @@ import { NgxMatTimepickerComponent } from './timepicker.component';
     FormsModule,
     MatIconModule,
     MatButtonModule,
-  ],
-  exports: [
     NgxMatTimepickerComponent
   ],
-  declarations: [
+  exports: [
     NgxMatTimepickerComponent
   ]
 })

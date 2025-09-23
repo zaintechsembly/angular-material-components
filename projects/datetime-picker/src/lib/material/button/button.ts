@@ -68,6 +68,8 @@ export const _MatButtonMixinBase:
              button[mat-fab], button[mat-mini-fab], button[mat-stroked-button],
              button[mat-flat-button]`,
   exportAs: 'matButton',
+  standalone: true,
+  imports: [MatRipple],
   host: {
     '[disabled]': 'disabled || null',
     '[class._mat-animation-noopable]': '_animationMode === "NoopAnimations"',
@@ -146,6 +148,8 @@ export class MatButton extends _MatButtonMixinBase
   selector: `a[mat-button], a[mat-raised-button], a[mat-icon-button], a[mat-fab],
              a[mat-mini-fab], a[mat-stroked-button], a[mat-flat-button]`,
   exportAs: 'matButton, matAnchor',
+  standalone: true,
+  imports: [MatRipple],
   host: {
     // Note that we ignore the user-specified tabindex when it's disabled for
     // consistency with the `mat-button` applied on native buttons where even

@@ -11,11 +11,14 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ESCAPE, UP_ARROW } from '@angular/cdk/keycodes';
 import { Overlay, OverlayConfig, OverlayRef, PositionStrategy, ScrollStrategy } from '@angular/cdk/overlay';
 import { ComponentPortal, ComponentType } from '@angular/cdk/portal';
-import { DOCUMENT } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AfterViewInit, ChangeDetectionStrategy, Component, ComponentRef, ElementRef, EventEmitter, Inject, Input, NgZone, OnDestroy, Optional, Output, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { CanColor, CanColorCtor, mixinColor, ThemePalette } from './material/core/public-api';
 import { MatCalendarCellCssClasses, matDatepickerAnimations, MAT_DATEPICKER_SCROLL_STRATEGY } from './material/datepicker/public-api';
 import { MatDialog, MatDialogRef } from './material/dialog/public-api';
+import { MatIcon } from './material/icon/public-api';
+import { MatButton } from './material/button/public-api';
 import { NgxMatDateAdapter } from './core/date-adapter';
 import { merge, Subject, Subscription } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
@@ -47,6 +50,8 @@ const _MatDatepickerContentMixinBase: CanColorCtor & typeof MatDatepickerContent
   selector: 'ngx-mat-datetime-content',
   templateUrl: 'datetime-content.component.html',
   styleUrls: ['datetime-content.component.scss'],
+  standalone: true,
+  imports: [CommonModule, FormsModule, NgxMatCalendar, NgxMatTimepickerComponent, MatIcon, MatButton],
   host: {
     'class': 'mat-datepicker-content',
     '[@transformPanel]': '"enter"',
@@ -65,16 +70,16 @@ export class NgxMatDatetimeContent<D> extends _MatDatepickerContentMixinBase
   implements AfterViewInit, CanColor {
 
   /** Reference to the internal calendar component. */
-  @ViewChild(NgxMatCalendar) _calendar: NgxMatCalendar<D>;
+  @ViewChild(NgxMatCalendar) _calendar!: NgxMatCalendar<D>;
 
   /** Reference to the internal time picker component. */
-  @ViewChild(NgxMatTimepickerComponent) _timePicker: NgxMatTimepickerComponent<D>;
+  @ViewChild(NgxMatTimepickerComponent) _timePicker!: NgxMatTimepickerComponent<D>;
 
   /** Reference to the datepicker that created the overlay. */
-  datepicker: NgxMatDatetimePicker<D>;
+  datepicker!: NgxMatDatetimePicker<D>;
 
   /** Whether the datepicker is above or below the input. */
-  _isAbove: boolean;
+  _isAbove!: boolean;
 
   /** Whether or not the selected date is valid (min,max...) */
   get valid(): boolean {
@@ -104,6 +109,7 @@ export class NgxMatDatetimeContent<D> extends _MatDatepickerContentMixinBase
 @Component({
   selector: 'ngx-mat-datetime-picker',
   template: '',
+  standalone: true,
   exportAs: 'ngxMatDatetimePicker',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
@@ -112,7 +118,7 @@ export class NgxMatDatetimePicker<D> implements OnDestroy, CanColor {
   private _scrollStrategy: () => ScrollStrategy;
 
   /** An input indicating the type of the custom header component for the calendar, if set. */
-  @Input() calendarHeaderComponent: ComponentType<any>;
+  @Input() calendarHeaderComponent!: ComponentType<any>;
 
   /** The date to open the calendar to initially. */
   @Input()
@@ -124,7 +130,7 @@ export class NgxMatDatetimePicker<D> implements OnDestroy, CanColor {
   set startAt(value: D | null) {
     this._startAt = this._getValidDateOrNull(this._dateAdapter.deserialize(value));
   }
-  private _startAt: D | null;
+  private _startAt: D | null = null;
 
   /** The view that the calendar should start in. */
   @Input() startView: 'month' | 'year' | 'multi-year' = 'month';
@@ -172,7 +178,7 @@ export class NgxMatDatetimePicker<D> implements OnDestroy, CanColor {
       this._disabledChange.next(newValue);
     }
   }
-  public _disabled: boolean;
+  public _disabled!: boolean;
 
   /**
    * Emits selected year in multiyear view.
@@ -187,10 +193,10 @@ export class NgxMatDatetimePicker<D> implements OnDestroy, CanColor {
   @Output() readonly monthSelected: EventEmitter<D> = new EventEmitter<D>();
 
   /** Classes to be passed to the date picker panel. Supports the same syntax as `ngClass`. */
-  @Input() panelClass: string | string[];
+  @Input() panelClass!: string | string[];
 
   /** Function that can be used to add custom CSS classes to dates. */
-  @Input() dateClass: (date: D) => MatCalendarCellCssClasses;
+  @Input() dateClass!: (date: D) => MatCalendarCellCssClasses;
 
   /** Emits when the datepicker has been opened. */
   @Output('opened') openedStream: EventEmitter<void> = new EventEmitter<void>();
@@ -245,13 +251,13 @@ export class NgxMatDatetimePicker<D> implements OnDestroy, CanColor {
   @Input()
   get disableMinute(): boolean { return this._disableMinute; }
   set disableMinute(value: boolean) { this._disableMinute = value; }
-  public _disableMinute: boolean;
+  public _disableMinute!: boolean;
 
   /** Step second */
   @Input()
   get defaultTime(): number[] { return this._defaultTime; }
   set defaultTime(value: number[]) { this._defaultTime = value; }
-  public _defaultTime: number[];
+  public _defaultTime!: number[];
 
   private _hasBackdrop: boolean = true;
 
@@ -284,16 +290,16 @@ export class NgxMatDatetimePicker<D> implements OnDestroy, CanColor {
   }
 
   /** A reference to the overlay when the calendar is opened as a popup. */
-  _popupRef: OverlayRef;
+  _popupRef!: OverlayRef;
 
   /** A reference to the dialog when the calendar is opened as a dialog. */
-  private _dialogRef: MatDialogRef<NgxMatDatetimeContent<D>> | null;
+  private _dialogRef!: MatDialogRef<NgxMatDatetimeContent<D>> | null;
 
   /** A portal containing the calendar for this datepicker. */
-  private _calendarPortal: ComponentPortal<NgxMatDatetimeContent<D>>;
+  private _calendarPortal!: ComponentPortal<NgxMatDatetimeContent<D>>;
 
   /** Reference to the component instantiated in popup mode. */
-  private _popupComponentRef: ComponentRef<NgxMatDatetimeContent<D>> | null;
+  private _popupComponentRef!: ComponentRef<NgxMatDatetimeContent<D>> | null;
 
   /** The element that was focused before the datepicker was opened. */
   private _focusedElementBeforeOpen: HTMLElement | null = null;
@@ -302,7 +308,7 @@ export class NgxMatDatetimePicker<D> implements OnDestroy, CanColor {
   private _inputSubscription = Subscription.EMPTY;
 
   /** The input element this datepicker is associated with. */
-  _datepickerInput: NgxMatDatetimeInput<D>;
+  _datepickerInput!: NgxMatDatetimeInput<D>;
 
   /** Emits when the datepicker is disabled. */
   readonly _disabledChange = new Subject<boolean>();
@@ -311,7 +317,7 @@ export class NgxMatDatetimePicker<D> implements OnDestroy, CanColor {
   readonly _selectedChanged = new Subject<D>();
 
   /** Raw value before  */
-  private _rawValue: D;
+  private _rawValue!: D | null;
 
   constructor(private _dialog: MatDialog,
     private _overlay: Overlay,

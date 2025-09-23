@@ -17,15 +17,13 @@ import {MatAnchor, MatButton} from './button';
     CommonModule,
     MatRippleModule,
     MatCommonModule,
+    MatButton,
+    MatAnchor,
   ],
   exports: [
     MatButton,
     MatAnchor,
     MatCommonModule,
-  ],
-  declarations: [
-    MatButton,
-    MatAnchor,
   ],
 })
 export class MatButtonModule {}

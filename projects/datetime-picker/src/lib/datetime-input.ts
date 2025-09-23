@@ -94,7 +94,7 @@ export class NgxMatDatetimeInput<D> implements ControlValueAccessor, OnDestroy, 
             this.dateChange.emit(new MatDatetimePickerInputEvent(this, this._elementRef.nativeElement));
         });
     }
-    _datepicker: NgxMatDatetimePicker<D>;
+    _datepicker!: NgxMatDatetimePicker<D>;
 
     /** Function that can be used to filter out dates within the datepicker. */
     @Input()
@@ -102,7 +102,7 @@ export class NgxMatDatetimeInput<D> implements ControlValueAccessor, OnDestroy, 
         this._dateFilter = value;
         this._validatorOnChange();
     }
-    _dateFilter: (date: D | null) => boolean;
+    _dateFilter!: (date: D | null) => boolean;
 
     /** The value of the input. */
     @Input()
@@ -119,7 +119,7 @@ export class NgxMatDatetimeInput<D> implements ControlValueAccessor, OnDestroy, 
             this._valueChange.emit(value);
         }
     }
-    private _value: D | null;
+    private _value: D | null = null;
 
     /** The minimum valid date. */
     @Input()
@@ -128,7 +128,7 @@ export class NgxMatDatetimeInput<D> implements ControlValueAccessor, OnDestroy, 
         this._min = this._getValidDateOrNull(this._dateAdapter.deserialize(value));
         this._validatorOnChange();
     }
-    private _min: D | null;
+    private _min: D | null = null;
 
     /** The maximum valid date. */
     @Input()
@@ -137,7 +137,7 @@ export class NgxMatDatetimeInput<D> implements ControlValueAccessor, OnDestroy, 
         this._max = this._getValidDateOrNull(this._dateAdapter.deserialize(value));
         this._validatorOnChange();
     }
-    private _max: D | null;
+    private _max: D | null = null;
 
     /** Whether the datepicker-input is disabled. */
     @Input()
@@ -159,7 +159,7 @@ export class NgxMatDatetimeInput<D> implements ControlValueAccessor, OnDestroy, 
             element.blur();
         }
     }
-    private _disabled: boolean;
+    private _disabled!: boolean;
 
     /** Emits when a `change` event is fired on this `<input>`. */
     @Output() readonly dateChange: EventEmitter<MatDatetimePickerInputEvent<D>> =

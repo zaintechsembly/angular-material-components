@@ -1,5 +1,9 @@
 import { ChangeDetectorRef, Component, forwardRef, Input, OnChanges, OnInit, Optional, SimpleChanges, ViewEncapsulation } from '@angular/core';
-import { ControlValueAccessor, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
+import { ControlValueAccessor, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from './material/button/public-api';
+import { MatIconModule } from './material/icon/public-api';
+import { MatInputModule } from './material/input/public-api';
 import { ThemePalette } from './material/core/public-api';
 import { Subject } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
@@ -10,6 +14,15 @@ import { createMissingDateImplError, DEFAULT_STEP, formatTwoDigitTimeValue, LIMI
   selector: 'ngx-mat-timepicker',
   templateUrl: './timepicker.component.html',
   styleUrls: ['./timepicker.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatIconModule,
+    MatButtonModule,
+  ],
   host: {
     'class': 'ngx-mat-timepicker'
   },
@@ -35,7 +48,7 @@ export class NgxMatTimepickerComponent<D> implements ControlValueAccessor, OnIni
   @Input() showSeconds = false;
   @Input() disableMinute = false;
   @Input() enableMeridian = false;
-  @Input() defaultTime: number[];
+  @Input() defaultTime: number[] = [];
   @Input() color: ThemePalette = 'primary';
 
   public meridian: string = MERIDIANS.AM;
@@ -63,8 +76,8 @@ export class NgxMatTimepickerComponent<D> implements ControlValueAccessor, OnIni
 
   private _onChange: any = () => { };
   private _onTouched: any = () => { };
-  private _disabled: boolean;
-  private _model: D;
+  private _disabled: boolean = false;
+  private _model!: D;
 
   private _destroyed: Subject<void> = new Subject<void>();
 
@@ -90,7 +103,7 @@ export class NgxMatTimepickerComponent<D> implements ControlValueAccessor, OnIni
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.disabled && !changes.disabled.firstChange) {
+    if (changes['disabled'] && !changes['disabled'].firstChange) {
       this.disabled ? this.form.disable() : this.form.enable();
     }
 
@@ -198,8 +211,8 @@ export class NgxMatTimepickerComponent<D> implements ControlValueAccessor, OnIni
    */
   private _getNextValueByProp(prop: string, up?: boolean): number {
     const keyProp = prop[0].toUpperCase() + prop.slice(1);
-    const min = LIMIT_TIMES[`min${keyProp}`];
-    let max = LIMIT_TIMES[`max${keyProp}`];
+    const min = LIMIT_TIMES[`min${keyProp}` as keyof typeof LIMIT_TIMES] as number;
+    let max = LIMIT_TIMES[`max${keyProp}` as keyof typeof LIMIT_TIMES] as number;
 
     if (prop === 'hour' && this.enableMeridian) {
       max = LIMIT_TIMES.meridian;
@@ -207,9 +220,11 @@ export class NgxMatTimepickerComponent<D> implements ControlValueAccessor, OnIni
 
     let next;
     if (up == null) {
-      next = this[prop] % (max);
+      next = this._getPropValue(prop) % (max);
     } else {
-      next = up ? this[prop] + this[`step${keyProp}`] : this[prop] - this[`step${keyProp}`];
+      const currentValue = this._getPropValue(prop);
+      const stepValue = this._getStepValue(prop);
+      next = up ? currentValue + stepValue : currentValue - stepValue;
       if (prop === 'hour' && this.enableMeridian) {
         next = next % (max + 1);
         if (next === 0) next = up ? 1 : max;
@@ -225,6 +240,24 @@ export class NgxMatTimepickerComponent<D> implements ControlValueAccessor, OnIni
     }
 
     return next;
+  }
+
+  private _getPropValue(prop: string): number {
+    switch (prop) {
+      case 'hour': return this.hour;
+      case 'minute': return this.minute;
+      case 'second': return this.second;
+      default: return 0;
+    }
+  }
+
+  private _getStepValue(prop: string): number {
+    switch (prop) {
+      case 'hour': return this.stepHour;
+      case 'minute': return this.stepMinute;
+      case 'second': return this.stepSecond;
+      default: return DEFAULT_STEP;
+    }
   }
 
 }

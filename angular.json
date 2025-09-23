@@ -29,8 +29,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -43,12 +42,9 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -62,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-material-components:build"
+            "buildTarget": "angular-material-components:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-material-components:build:production"
+              "buildTarget": "angular-material-components:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-material-components:build"
+            "buildTarget": "angular-material-components:build"
           }
         },
         "lint": {
@@ -96,9 +92,8 @@
       "prefix": "NgxMat",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/datetime-picker/tsconfig.lib.json",
             "project": "projects/datetime-picker/ng-package.json"
           }
         },
@@ -125,27 +120,18 @@
       }
     }
   },
-  "defaultProject": "angular-material-components",
   "schematics": {
     "@schematics/angular:module": {
-      "prefix": "ngx-mat",
-      "spec": false
+      "prefix": "ngx-mat"
     },
     "@schematics/angular:component": {
       "prefix": "ngx-mat",
-      "styleext": "scss",
-      "spec": false
+      "style": "scss"
     },
     "@schematics/angular:directive": {
-      "prefix": "ngx-mat",
-      "spec": false
+      "prefix": "ngx-mat"
     },
     "@schematics/angular:pipe": {
-      "prefix": "ngx-mat",
-      "spec": false
-    },
-    "@schematics/angular:service": {
-      "spec": false
     }
   }
 }

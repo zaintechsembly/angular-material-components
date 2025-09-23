@@ -182,6 +182,7 @@ export class NgxMatNativeDateAdapter extends NgxMatDateAdapter<Date> {
   }
 
   today(): Date {
+    // return new Date(new Date().setHours(0, 0, 0, 0));
     return new Date();
   }
 
