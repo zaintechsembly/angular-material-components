@@ -8,7 +8,7 @@
 
 import { Platform } from '@angular/cdk/platform';
 import { Inject, Injectable, Optional } from '@angular/core';
-import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '../material/core/public-api';
 import { NgxMatDateAdapter } from './date-adapter';
 
 // TODO(mmalerba): Remove when we no longer support safari 9.

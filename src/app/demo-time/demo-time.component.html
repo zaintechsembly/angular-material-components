@@ -1,97 +1,82 @@
 <h2>See <a [routerLink]="['/datetimepicker']">API Datetime-picker</a> for more details</h2>
 
-<mat-card class="zone zone-value">Selected date: {{date?.toLocaleString()}}</mat-card>
+<div class="zone zone-value" style="padding: 16px; margin: 16px; border: 1px solid #ddd; border-radius: 4px;">
+  <h3>Selected date: {{date?.toLocaleString()}}</h3>
+</div>
 
-<mat-card class="zone zone-picker">
+<div class="zone zone-picker" style="padding: 16px; margin: 16px; border: 1px solid #ddd; border-radius: 4px;">
   <ngx-mat-timepicker [(ngModel)]="date" [disabled]="disabled" [showSpinners]="showSpinners" [stepHour]="stepHour"
     [stepMinute]="stepMinute" [stepSecond]="stepSecond" [showSeconds]="showSeconds" [color]="color"
     [enableMeridian]="enableMeridian" [disableMinute]="disableMinute">
   </ngx-mat-timepicker>
-</mat-card>
+</div>
 
-<mat-card class="zone zone-config">
-  <div class="config-wrapper">
-    <span class="label">disabled (Default: false) </span>
-    <mat-radio-group aria-label="Select an option" [(ngModel)]="disabled">
-      <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option.value">
-        {{option.label}}</mat-radio-button>
-    </mat-radio-group>
+<div class="zone zone-config" style="padding: 16px; margin: 16px; border: 1px solid #ddd; border-radius: 4px;">
+  <div class="config-wrapper" style="margin: 8px 0;">
+    <label>
+      <input type="checkbox" [(ngModel)]="disabled" style="margin-right: 8px;">
+      disabled (Default: false)
+    </label>
   </div>
 
-  <div class="config-wrapper">
-    <span class="label">showSpinners (Default: true) </span>
-    <mat-radio-group aria-label="Select an option" [(ngModel)]="showSpinners">
-      <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option.value">
-        {{option.label}}</mat-radio-button>
-    </mat-radio-group>
+  <div class="config-wrapper" style="margin: 8px 0;">
+    <label>
+      <input type="checkbox" [(ngModel)]="showSpinners" style="margin-right: 8px;">
+      showSpinners (Default: true)
+    </label>
   </div>
 
-
-  <div class="config-wrapper">
-    <span class="label">showSeconds (Default: false) </span>
-    <mat-radio-group aria-label="Select an option" [(ngModel)]="showSeconds">
-      <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option.value">
-        {{option.label}}</mat-radio-button>
-    </mat-radio-group>
+  <div class="config-wrapper" style="margin: 8px 0;">
+    <label>
+      <input type="checkbox" [(ngModel)]="showSeconds" style="margin-right: 8px;">
+      showSeconds (Default: false)
+    </label>
   </div>
 
-
-  <div class="config-wrapper">
-    <span class="label">disableMinute (Default: false) </span>
-    <mat-radio-group aria-label="Select an option" [(ngModel)]="disableMinute">
-      <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option.value">
-        {{option.label}}</mat-radio-button>
-    </mat-radio-group>
+  <div class="config-wrapper" style="margin: 8px 0;">
+    <label>
+      <input type="checkbox" [(ngModel)]="disableMinute" style="margin-right: 8px;">
+      disableMinute (Default: false)
+    </label>
   </div>
 
-  <div class="config-wrapper">
-    <span class="label">enableMeridian (Default: false) </span>
-    <mat-radio-group aria-label="Select an option" [(ngModel)]="enableMeridian">
-      <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option.value">
-        {{option.label}}</mat-radio-button>
-    </mat-radio-group>
+  <div class="config-wrapper" style="margin: 8px 0;">
+    <label>
+      <input type="checkbox" [(ngModel)]="enableMeridian" style="margin-right: 8px;">
+      enableMeridian (Default: false)
+    </label>
   </div>
 
-  <div class="config-wrapper config-wrapper_step">
-    <span class="label">steps </span>
-    <mat-form-field>
-      <mat-label>hour (default: 1)</mat-label>
-      <mat-select [(ngModel)]="stepHour">
-        <mat-option *ngFor="let step of stepHours" [value]="step">
-          {{step}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>minute (default: 1)</mat-label>
-      <mat-select [(ngModel)]="stepMinute">
-        <mat-option *ngFor="let step of stepMinutes" [value]="step">
-          {{step}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>second (default: 1)</mat-label>
-      <mat-select [(ngModel)]="stepSecond">
-        <mat-option *ngFor="let step of stepSeconds" [value]="step">
-          {{step}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+  <div class="config-wrapper config-wrapper_step" style="margin: 16px 0;">
+    <span class="label">Steps: </span>
+    <div style="display: flex; gap: 16px; align-items: center;">
+      <div>
+        <label>Hour (default: 1):</label>
+        <select [(ngModel)]="stepHour" style="margin-left: 8px; padding: 4px;">
+          <option *ngFor="let step of stepHours" [value]="step">{{step}}</option>
+        </select>
+      </div>
+      <div>
+        <label>Minute (default: 1):</label>
+        <select [(ngModel)]="stepMinute" style="margin-left: 8px; padding: 4px;">
+          <option *ngFor="let step of stepMinutes" [value]="step">{{step}}</option>
+        </select>
+      </div>
+      <div>
+        <label>Second (default: 1):</label>
+        <select [(ngModel)]="stepSecond" style="margin-left: 8px; padding: 4px;">
+          <option *ngFor="let step of stepSeconds" [value]="step">{{step}}</option>
+        </select>
+      </div>
+    </div>
   </div>
 
-  <div class="config-wrapper">
-    <span class="label">color (Default: primary) </span>
-    <mat-form-field>
-      <mat-label>Select color</mat-label>
-      <mat-select [(ngModel)]="color">
-        <mat-option *ngFor="let item of listColors" [value]="item">
-          {{item}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+  <div class="config-wrapper" style="margin: 8px 0;">
+    <label>Color (Default: primary):</label>
+    <select [(ngModel)]="color" style="margin-left: 8px; padding: 4px;">
+      <option *ngFor="let item of listColors" [value]="item">{{item}}</option>
+    </select>
   </div>
-</mat-card>
+</div>
 
 <pre><code ngxMatHighlight class="language-html">{{codeTimePicker}}</code></pre>

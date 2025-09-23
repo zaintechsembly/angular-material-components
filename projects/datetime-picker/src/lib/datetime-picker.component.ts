@@ -13,9 +13,9 @@ import { Overlay, OverlayConfig, OverlayRef, PositionStrategy, ScrollStrategy } 
 import { ComponentPortal, ComponentType } from '@angular/cdk/portal';
 import { DOCUMENT } from '@angular/common';
 import { AfterViewInit, ChangeDetectionStrategy, Component, ComponentRef, ElementRef, EventEmitter, Inject, Input, NgZone, OnDestroy, Optional, Output, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
-import { CanColor, CanColorCtor, mixinColor, ThemePalette } from '@angular/material/core';
-import { MatCalendarCellCssClasses, matDatepickerAnimations, MAT_DATEPICKER_SCROLL_STRATEGY } from '@angular/material/datepicker';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { CanColor, CanColorCtor, mixinColor, ThemePalette } from './material/core/public-api';
+import { MatCalendarCellCssClasses, matDatepickerAnimations, MAT_DATEPICKER_SCROLL_STRATEGY } from './material/datepicker/public-api';
+import { MatDialog, MatDialogRef } from './material/dialog/public-api';
 import { NgxMatDateAdapter } from './core/date-adapter';
 import { merge, Subject, Subscription } from 'rxjs';
 import { filter, take } from 'rxjs/operators';

@@ -31,7 +31,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import {Directionality} from '@angular/cdk/bidi';
-import { MatCalendarBody, MatCalendarCell } from '@angular/material/datepicker';
+import { MatCalendarBody, MatCalendarCell } from './material/datepicker/public-api';
 import { NgxMatDateAdapter } from './core/date-adapter';
 
 export const yearsPerPage = 24;

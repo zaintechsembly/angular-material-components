@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from './material/button/public-api';
+import { MatIconModule } from './material/icon/public-api';
+import { MatInputModule } from './material/input/public-api';
 import { NgxMatTimepickerComponent } from './timepicker.component';
 
 @NgModule({

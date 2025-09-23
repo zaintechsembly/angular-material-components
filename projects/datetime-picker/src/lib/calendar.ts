@@ -8,7 +8,7 @@
 
 import { ComponentPortal, ComponentType, Portal } from '@angular/cdk/portal';
 import { AfterContentInit, AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, forwardRef, Inject, Input, OnChanges, OnDestroy, Optional, Output, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
-import { MatCalendarCellCssClasses, MatDatepickerIntl } from '@angular/material/datepicker';
+import { MatCalendarCellCssClasses, MatDatepickerIntl } from './material/datepicker/public-api';
 import { Subject, Subscription } from 'rxjs';
 import { NgxMatDateAdapter } from './core/date-adapter';
 import { NgxMatDateFormats, NGX_MAT_DATE_FORMATS } from './core/date-formats';
