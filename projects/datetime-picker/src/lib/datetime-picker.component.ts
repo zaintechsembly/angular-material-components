@@ -10,13 +10,13 @@ import { Directionality } from '@angular/cdk/bidi';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ESCAPE, UP_ARROW } from '@angular/cdk/keycodes';
 import { Overlay, OverlayConfig, OverlayRef, PositionStrategy, ScrollStrategy } from '@angular/cdk/overlay';
-import { ComponentPortal, ComponentType } from '@angular/cdk/portal';
+import { ComponentPortal, ComponentType, PortalModule } from '@angular/cdk/portal';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AfterViewInit, ChangeDetectionStrategy, Component, ComponentRef, ElementRef, EventEmitter, Inject, Input, NgZone, OnDestroy, Optional, Output, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { CanColor, CanColorCtor, mixinColor, ThemePalette } from './material/core/public-api';
-import { MatCalendarCellCssClasses, matDatepickerAnimations, MAT_DATEPICKER_SCROLL_STRATEGY } from './material/datepicker/public-api';
-import { MatDialog, MatDialogRef } from './material/dialog/public-api';
+import { MatCalendarCellCssClasses, matDatepickerAnimations, MAT_DATEPICKER_SCROLL_STRATEGY, MAT_DATEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER, MatDatepickerIntl } from './material/datepicker/public-api';
+import { MatDialog, MatDialogRef, MatDialogModule } from './material/dialog/public-api';
 import { MatIcon } from './material/icon/public-api';
 import { MatButton } from './material/button/public-api';
 import { NgxMatDateAdapter } from './core/date-adapter';
@@ -110,6 +110,8 @@ export class NgxMatDatetimeContent<D> extends _MatDatepickerContentMixinBase
   selector: 'ngx-mat-datetime-picker',
   template: '',
   standalone: true,
+  imports: [MatDialogModule, PortalModule],
+  providers: [MAT_DATEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER, MatDatepickerIntl],
   exportAs: 'ngxMatDatetimePicker',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,

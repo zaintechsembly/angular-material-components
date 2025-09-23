@@ -413,7 +413,7 @@ export class OverlayRef implements PortalOutlet, OverlayReference {
       return;
     }
 
-    let timeoutId: number;
+    let timeoutId: any;
     let finishDetach = () => {
       // It may not be attached to anything in certain cases (e.g. unit tests).
       if (backdropToDetach && backdropToDetach.parentNode) {

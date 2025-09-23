@@ -49,6 +49,7 @@ export function throwMatDialogContentAlreadyAttachedError() {
 @Component({
   selector: 'mat-dialog-container',
   standalone: true,
+  imports: [CdkPortalOutlet],
   templateUrl: 'dialog-container.html',
   styleUrls: ['dialog.scss'],
   encapsulation: ViewEncapsulation.None,
