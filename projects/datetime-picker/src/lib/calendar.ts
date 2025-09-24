@@ -163,7 +163,7 @@ export class NgxMatCalendarHeader<D> {
   templateUrl: 'calendar.html',
   styleUrls: ['calendar.scss'],
   standalone: true,
-  imports: [CommonModule, PortalModule, A11yModule, NgxMatCalendarHeader, NgxMatMonthView, NgxMatYearView, NgxMatMultiYearView],
+  imports: [CommonModule, PortalModule, A11yModule, NgxMatMonthView, NgxMatYearView, NgxMatMultiYearView],
   host: {
     'class': 'mat-calendar',
   },
